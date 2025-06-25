@@ -8,7 +8,7 @@
         const path = location.pathname;
 
         // Lấy base path nếu khớp với sub-project
-        const match = path.match(/^\/dashboard\/(xaydungmiendong|shoponline)/);
+        const match = path.match(/^\/dashboard-test\/(-----xaydungmiendong--|--shoponline----)/);
         const subProject = match ? match[0] : '/';
 
         // Lưu path gốc để sub-project xử lý điều hướng nội bộ
