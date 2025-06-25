@@ -3,7 +3,8 @@ name: Update admin-shared submodule
 on:
   repository_dispatch:
     types: [update-submodule]
-
+  workflow_dispatch:
+  
 jobs:
   update:
     runs-on: ubuntu-latest
