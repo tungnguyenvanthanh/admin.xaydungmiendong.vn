@@ -3,7 +3,7 @@ name: Update admin-shared submodule
 on:
   repository_dispatch:
     types: [update-submodule]
-  workflow_dispatch:  # 👈 Cho phép chạy thủ công để kích hoạt lần đầu
+  workflow_dispatch:  # Cho phép test thủ công
 
 jobs:
   update:
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}  # ✅ Token mặc định là đủ
 
       - name: Update submodule
         run: |
