@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Page Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AppAdmin</title>
+
+    <base href="/" />
+    <!--<base href="/dashboard/xaydungmiendong/" />-->
+
+    <script>
+        window.__env = {
+            environment: "Production"  // "Development" Hoặc "Production"
+        };
+    </script>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link href="_content/TTVLMudThemeLibrary/css/spacing.css" rel="stylesheet" />
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="AppAdmin.styles.css" rel="stylesheet" />
 </head>
+
 <body>
+    <div id="app" class="min-vh-100 w-100 overflow-y-auto">
+        <div class="loading-progress-content">
+            <svg class="loading-progress">
+                <circle r="40%" cx="50%" cy="50%" />
+                <circle r="40%" cx="50%" cy="50%" />
+            </svg>
+            <div class="loading-progress-text"></div>
+            <img src="https://raw.githubusercontent.com/tungnguyenvanthanh/lottie-files/main/images/logo-dark-ttvl.png" width="300" />
+        </div>
+    </div>
 
-<h1>This is a Heading Tùng đẹp trai</h1>
-<p>This is a paragraph. Tùng là Nhất</p>
-<h1>đẹp trai thật sự lun</h1>
-<h1>đẹp trai là tui mờ</h1>
-<h1>đẹp trai thế nhỡ</h1>
-<h1>đẹp trai thế nhỡ11111</h1>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
 
+    <!-- Nhúng js và css của TTVLMudThemeLibrary -->
+    <script src="_content/TTVLMudThemeLibrary/js/scripts.bundle.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/site.js"></script>
+
+    <!-- Cơ chế tự động chuyển page dựa vào 404 của Github -->
+    <script>
+        const redirectPath = sessionStorage.getItem('redirectPath');
+        const baseHref = document.querySelector('base')?.getAttribute('href') || '/';
+
+        if (redirectPath && redirectPath.startsWith(baseHref)) {
+            sessionStorage.removeItem('redirectPath');
+            history.replaceState({}, '', redirectPath);
+        } else if (redirectPath) {
+            sessionStorage.removeItem('redirectPath');
+            history.replaceState({}, '', baseHref);
+        }
+    </script>
 </body>
+
 </html>
