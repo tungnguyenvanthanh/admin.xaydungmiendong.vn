@@ -48,4 +48,4 @@ jobs:
           
       - name: Check files in docs
         run: |
-          find docs/
+          find docs/ -type f
