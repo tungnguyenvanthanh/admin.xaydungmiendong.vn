@@ -45,3 +45,7 @@ jobs:
           git add docs
           git commit -m "Update docs from admin-shared" || echo "No docs changes"
           git push
+          
+      - name: Check files in docs
+        run: |
+          find docs/
