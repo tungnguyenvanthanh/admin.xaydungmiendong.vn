@@ -31,8 +31,17 @@ jobs:
           rm -rf docs
           mkdir docs
           cp -r admin-shared/* docs/
+
+      - name: Adjust base href in index.html
+        run: |
+          sed -i 's|<base href="[^"]*"|<base href="/"|g' docs/index.html
+
+      - name: Add CNAME
+        run: |
           echo "admin.xaydungmiendong.vn" > docs/CNAME
+
+      - name: Commit and push
+        run: |
           git add docs
           git commit -m "Update docs from admin-shared" || echo "No docs changes"
           git push
-
