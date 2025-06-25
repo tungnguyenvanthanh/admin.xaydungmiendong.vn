@@ -32,9 +32,9 @@ jobs:
           mkdir docs
           cp -r admin-shared/* docs/
 
-      - name: Adjust base href in index.html
+      - name: Add .nojekyll
         run: |
-          sed -i 's|<base href="[^"]*"|<base href="/"|g' docs/index.html
+          touch docs/.nojekyll
 
       - name: Add CNAME
         run: |
@@ -45,7 +45,7 @@ jobs:
           git add docs
           git commit -m "Update docs from admin-shared" || echo "No docs changes"
           git push
-          
+
       - name: Check files in docs
         run: |
           find docs/ -type f
