@@ -1,0 +1,203 @@
+.main-header {
+    .header-top .left-box {
+        padding: 0;
+    }
+
+    .main-menu .navigation > li > ul > li.dropdown > a:after {
+        position: initial;
+    }
+
+    .main-menu .navigation > li {
+        & > ul > li > a {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media only screen and (max-width: 1140px) {
+            & > a {
+                padding: 30px 0px;
+            }
+        }
+    }
+
+    .header-options_box:before {
+        display: none;
+    }
+
+    .header-lower {
+        .nav-outer {
+            margin-left: 30px;
+        }
+
+        .logo-box .logo {
+            padding: 10px 15px 10px 0px !important;
+
+            &:before {
+                background-color: aliceblue;
+            }
+
+            .logo-img {
+                display: block;
+                height: 80px;
+
+                @media only screen and (max-width: 1140px) {
+                    height: 60px;
+                }
+            }
+
+            .logo-icon {
+                display: none;
+            }
+
+
+            @media only screen and (max-width: 479px) {
+                padding-right: 15px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                .logo-img {
+                    display: none;
+                }
+
+                .logo-icon {
+                    display: block;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1140px) {
+        .outer-box .header_button-box {
+            display: block;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .left-box {
+            width: 150px;
+        }
+
+        .outer-box {
+            gap: 15px;
+
+            .header_button-box {
+                display: flex;
+                height: 100%;
+
+                .btn-style-one {
+                    padding: 10px;
+                }
+            }
+        }
+
+        .header-options_box {
+            display: block !important;
+
+            .search-box-btn {
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+            }
+        }
+    }
+}
+
+.page-title {
+    padding: 50px 0px 50px;
+}
+
+.footer-logo {
+    img {
+        height: 150px;
+        filter: drop-shadow(0 0 20px white);
+        animation: glowSmooth 4s linear infinite;
+    }
+
+    @keyframes glowSmooth {
+        0% {
+            filter: drop-shadow(0 0 8px white);
+        }
+
+        10% {
+            filter: drop-shadow(4px -4px 8px aqua);
+        }
+
+        20% {
+            filter: drop-shadow(8px 0 8px aqua);
+        }
+
+        30% {
+            filter: drop-shadow(4px 4px 8px lightyellow);
+        }
+
+        40% {
+            filter: drop-shadow(0 8px 8px lightyellow);
+        }
+
+        50% {
+            filter: drop-shadow(-4px 4px 8px lightskyblue);
+        }
+
+        60% {
+            filter: drop-shadow(-8px 0 8px lightskyblue);
+        }
+
+        70% {
+            filter: drop-shadow(-4px -4px 8px white);
+        }
+
+        80% {
+            filter: drop-shadow(0 -8px 8px white);
+        }
+
+        90% {
+            filter: drop-shadow(4px -4px 8px aqua);
+        }
+
+        100% {
+            filter: drop-shadow(0 0 8px white);
+        }
+    }
+}
+
+.text-ellipsis-1 {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    -webkit-line-clamp: 1;
+}
+
+.text-ellipsis-2 {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    -webkit-line-clamp: 2;
+}
+
+.text-ellipsis-3 {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    -webkit-line-clamp: 3;
+}
+
+.img-cover-container {
+    aspect-ratio: 16 / 9;
+    overflow: hidden !important;
+
+    img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.project-icon-link{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    right: 0;
+}
