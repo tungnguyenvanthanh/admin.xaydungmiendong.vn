@@ -1,0 +1,204 @@
+<!--componentHtml:PageTitle title="Liên hệ" background="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/24.jpg" breadcrumbs='{"/":"Trang chủ", "#":"Liên hệ"}' -->
+
+<!-- Map One -->
+<section class="map-one">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Info Column -->
+            <div class="info-column col-lg-5 col-md-12 col-sm-12">
+                <div class="info-column_inner">
+                    <h3 class="map-one_title">Xin đừng ngần ngại liên hệ với chúng tôi nếu có bất kỳ thắc mắc nào</h3>
+                    <div class="map-one_text">Bạn cũng có thể liên hệ với chúng tôi qua điện thoại hoặc email</div>
+                    <ul class="map-one_info">
+                        @if (siteSetting.TryGetSiteSettingValue<string>("Address", out var address))
+                            {
+                            <li>
+                                <span class="icon flaticon-map"></span>
+                                <strong>Địa chỉ</strong>
+                                @address
+                            </li>
+                            }
+
+                            @if (siteSetting.TryGetSiteSettingValue<string>("Phone", out var phone))
+                                {
+                                <li>
+                                    <span class="icon flaticon-telephone-1"></span>
+                                    <strong>Liên hệ</strong>
+                                    <a href="@($" tel:{phone}")">@phone</a>
+                                    @if (siteSetting.TryGetSiteSettingValue<string>("Email", out var email))
+                                        {
+                                        <br>
+                                        <a href="@($" mailto:{email}")">@email</a>
+                                        }
+                                </li>
+                                }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Team Block One -->
+            <div class="map-column col-lg-7 col-md-12 col-sm-12">
+                <div class="map-column_inner">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805184.6331292129!2d144.49266890254142!3d-37.97123689954809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1574408946759!5m2!1sen!2s" allowfullscreen=""></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Map One -->
+<!-- Contact Two -->
+<section class="contact-two" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/26.jpg)">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Form Column -->
+            <div class="contact-two_form-column col-lg-7 col-md-12 col-sm-12">
+                <div class="contact-two-form_outer">
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="row clearfix">
+                                <div class="col-sm-12 form-group">
+                                    <label>Họ và tên*</label>
+                                    <input type="text" name="FullName" placeholder="Họ và tên*" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Tiêu đề*</label>
+                                    <input type="text" name="Title" placeholder="Tiêu đề*" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Loại</label>
+                                    <select name="RequestType">
+                                        @foreach (var item in Enum.GetValues(typeof(CustomerEnum.RequestTypeOption)).Cast<CustomerEnum.RequestTypeOption>().ToList())
+                                            {
+                                            <option value="@item.ToString()">@item.GetDescription()</option>
+                                            }
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Điện thoại*</label>
+                                    <input type="text" name="PhoneNumber" placeholder="Điện thoại*" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="Email" placeholder="Email">
+                                </div>
+
+                                <div class="col-sm-12 form-group">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" name="Address" placeholder="Địa chỉ">
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <label>Lời nhắn</label>
+                                    <textarea name="Description" placeholder="Lời nhắn" required></textarea>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <!-- Button Box -->
+                                    <button type="submit" class="theme-btn btn-style-one ladda-btn" data-style="zoom-in">Gửi tin nhắn</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End Contact Form -->
+                </div>
+            </div>
+
+            <!-- Team Block One -->
+            <div class="contact-two_title-column col-lg-5 col-md-12 col-sm-12">
+                <div class="contact-two_title-outer">
+                    <h3 class="contact-two_title">Liên hệ với đội ngũ của chúng tôi để được tư vấn nhanh chóng và tận tình.</h3>
+                    <div class="contact-two_text">Đừng ngần ngại nhắn cho chúng tôi! Đội ngũ phù hợp sẽ phản hồi bạn sớm nhất có thể.</div>
+                    <div class="contact-two_support">
+                        <img src="assets/images/resource/support.png" alt="" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Contact Two -->
+
+<script>
+    $(() => {
+    	var contactForm = $('#contact-form');
+    	var btnSubmit = Ladda.create(contactForm.find(".ladda-btn")[0]);
+    
+    	contactForm.validate({
+    		rules: {
+    			Title: {
+    				required: true
+    			},
+    			FullName: {
+    				required: true
+    			},
+    			PhoneNumber: {
+    				required: true
+    			},
+    			Description: {
+    				required: true
+    			},
+    			Email: {
+    				email: true
+    			}
+    		},
+    		messages: {
+    			Title: "Vui lòng nhập tiêu đề",
+    			FullName: "Vui lòng nhập tên của bạn",
+    			PhoneNumber: "Vui lòng nhập số điện thoại của bạn",
+    			Description: "Vui lòng nhập lời nhắn của bạn",
+    			Email: "Vui lòng nhập địa chỉ email hợp lệ",
+    		},
+    		submitHandler: function (form){
+    			btnSubmit.start();
+    
+    			var formData = $(form).serializeArray();
+    			var jsonData = {};
+    
+    			$.each(formData, function (index, field) {
+    				jsonData[field.name] = field.value;
+    			});
+    
+    			$.ajax({
+    				type: "POST",
+    				contentType: "application/json",
+    				url: "api/customers",
+    				data: JSON.stringify(jsonData),
+    				success: function (response) {
+    					$.toast({
+    						heading: 'Thành công',
+    						text: 'Gửi lời nhắn thành công, chúng tôi sẽ liên hệ bạn trong thời gian gần nhất.',
+    						icon: 'info',
+    						loader: true,
+    						hideAfter: 10000
+    					});
+    
+    					setTimeout(() => {
+    						$(form)[0].reset();
+    						btnSubmit.stop();
+    					}, 3000)
+    				},
+    				error: function (error) {
+    					$.toast({
+    						heading: 'Đã có lỗi',
+    						text: error.responseJSON.title,
+    						icon: 'error',
+    						loader: true,
+    						hideAfter: 10000
+    					});
+    					btnSubmit.stop();
+    				}
+    			});
+    		}
+    	});
+    })
+</script>

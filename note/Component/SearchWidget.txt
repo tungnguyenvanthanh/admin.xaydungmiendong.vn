@@ -1,0 +1,12 @@
+Html
+```
+<div class="widget-content">
+    <h5 class="sidebar-widget_title">Tìm kiếm</h5>
+    <form>
+        <div class="form-group">
+            <input type="search" name="search-field" value="" placeholder="Tìm kiếm" required>
+            <button><span class="icon fa fa-search"></span></button>
+        </div>
+    </form>
+</div>
+```

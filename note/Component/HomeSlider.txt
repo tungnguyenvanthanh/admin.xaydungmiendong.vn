@@ -1,0 +1,122 @@
+Html
+```
+<section class="slider-one">
+	<div class="slider-one_phone"><a href="tel:+088-142-5051"><i class="flaticon-call"></i>(088) 142-5051</a></div>
+	<div class="main-slider swiper-container">
+		<div class="swiper-wrapper">
+			{{ for item in model }}
+				<div class="swiper-slide" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/main-slider/1.jpg)">
+					<div class="auto-container">
+						<div class="row clearfix">
+
+							<!-- Content Column -->
+							<div class="slider-one_content col-xl-9 col-lg-7 col-md-12 col-sm-12">
+								<div class="slider-one_content-inner">
+									<div class="slider-one_title test">Decorate Your Room</div>
+									<h1 class="slider-one_heading">Quality Home Flooring & Painting Solution </h1>
+									<div class="slider-one_button">
+										<a href="services.html" class="theme-btn btn-style-two">
+											<span class="btn-wrap">
+												<span class="text-one">View Our Service</span>
+												<span class="text-two">View Our Service</span>
+											</span>
+										</a>
+									</div>
+
+								</div>
+							</div>
+
+							<!-- Image Column -->
+							<div class="slider-one_image-column col-xl-3 col-lg-5 col-md-12 col-sm-12">
+								<div class="slider-one_image">
+									<div class="title-one">No1 Flooring Tiles</div>
+									<div class="title-two">Marble Floor Tiles</div>
+									<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/main-slider/image-1.png" alt="" />
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			{{ end }}
+		</div>
+
+		<!-- If we need navigation buttons -->
+		<div class="slider-one_arrows">
+			<div class="main-slider-prev"><i class="flaticon-left-arrow"></i></div>
+			<div class="main-slider-next"><i class="flaticon-next-1"></i></div>
+		</div>
+
+		<!-- If we need pagination -->
+		<div class="slider-one_pagination"></div>
+
+	</div>
+</section>
+
+<script>
+	$(() => {
+		new Swiper('.main-slider', {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			loop: true,
+			autoplay: {
+				enabled: true,
+				delay: 6000
+			},
+			// Navigation arrows
+			navigation: {
+				nextEl: '.main-slider-next',
+				prevEl: '.main-slider-prev',
+				clickable: true,
+			},
+			//Pagination
+			pagination: {
+				el: ".slider-one_pagination",
+				clickable: true,
+				type: "fraction",
+			},
+			speed: 500,
+			breakpoints: {
+				'1600': {
+					slidesPerView: 1,
+				},
+				'1200': {
+					slidesPerView: 1,
+				},
+				'992': {
+					slidesPerView: 1,
+				},
+				'768': {
+					slidesPerView: 1,
+				},
+				'576': {
+					slidesPerView: 1,
+				},
+				'0': {
+					slidesPerView: 1,
+				},
+			},
+		});
+	})
+</script>
+```
+Data json
+```
+[
+    {
+        "title": "Giới thiệu công ty",
+        "summary": "Thông tin về công ty chúng tôi.",
+        "createdAt": "2024-10-01T08:30:00Z"
+    },
+    {
+        "title": "Tuyển dụng nhân sự",
+        "summary": "Chúng tôi đang tìm kiếm các vị trí mới.",
+        "createdAt": "2025-05-10T09:00:00Z"
+    },
+    {
+        "title": "Hợp tác truyền thông",
+        "summary": "Đã ký kết hợp đồng truyền thông với đối tác.",
+        "createdAt": "2025-06-01T15:00:00Z"
+    }
+]
+```

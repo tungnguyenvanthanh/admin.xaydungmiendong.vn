@@ -1,0 +1,115 @@
+Html
+```
+<!--componentHtml:ContactWidget-->
+
+<footer class="main-footer">
+	<div class="main-footer_bg" style="background-image: url(/assets/images/background/6.jpg)"></div>
+	<div class="auto-container">
+		<div class="inner-container">
+			<!-- Widgets Section -->
+			<div class="widgets-section">
+				<div class="row clearfix">
+
+					<!-- Big Column -->
+					<div class="big-column col-lg-6 col-md-12 col-sm-12">
+						<div class="row clearfix">
+
+							<!-- Footer Column -->
+							<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+								<div class="footer-widget footer-two_logo-widget">
+									<div class="footer-logo">
+										<a asp-controller="HomePage" asp-action="Index">
+												<img src="{{ model.sitelogofooter }}" alt="{{ model.sitename }}" title="{{ model.sitename }}">
+											</a>
+									</div>
+									<div class="footer-text">Chúng tôi không chỉ xây nhà, chúng tôi đồng hành cùng bạn. <strong>@siteName</strong> – Kiến tạo tương lai, bền vững từ hôm nay.</div>
+									<ul class="footer-list">
+										<li><a href="#">Vững xây từng công trình – Vun đắp niềm tin vững bền.</a></li>
+										<li><a href="#">Xây dựng bằng tâm – Vươn tầm bằng uy tín.</a></li>
+										<li><a href="#">Đặt chất lượng làm móng, lấy chữ tín làm nền.</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Footer Column -->
+							<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+								<!--RecentNewsWidget-->
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Big Column -->
+					<div class="big-column col-lg-6 col-md-12 col-sm-12">
+						<div class="row clearfix">
+
+							<!-- Footer Column -->
+							<div class="footer_column col-lg-5 col-md-6 col-sm-12">
+								<div class="footer-widget links-widget">
+									<h5 class="footer-title">links</h5>
+									<ul class="footer-list">
+										<li><a href="#">Tin tức</a></li>
+										<li><a href="#">Tuyển dụng</a></li>
+										<li><a href="#">Liên hệ</a></li>
+										<li><a href="#">Thư viện</a></li>
+										<li><a href="#">Chính sách bảo mật</a></li>
+										<li><a href="#">Câu hỏi thường gặp</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Footer Column -->
+							<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+								<div class="footer-widget newsletter-widget">
+									<h5 class="footer-title">Bản tin</h5>
+									<div class="newsletter-text">Đăng ký nhận bản tin hàng tuần của chúng tôi ngay hôm nay!</div>
+									<div class="newsletter-box">
+										<form>
+											<div class="form-group">
+												<input type="email" name="search-field" value="" placeholder="Email Address" required>
+												<button class="theme-btn">Đăng ký</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="footer-bottom">
+		<div class="auto-container">
+			<div class="d-flex justify-content-between align-items-center flex-wrap">
+				<div class="main-footer_copyright">&copy;2025 <a href="https://xaydungmiendong.vn" target="_blank">Miền Đông JSC</a> bảo lưu mọi quyền</div>
+				<!-- Header Socials -->
+				<div class="footer_socials">
+					<span>Kết nối</span>
+					<a class="fa-brands fa-facebook-f fa-fw" href="#"></a>
+					<a class="fa-brands fa-youtube fa-fw" href="#"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+```
+Script
+```
+var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
+
+var service = Services.GetRequiredService<ISiteSettingService>();
+
+var settings = await service.GetAsync(_currentUserContext.TenantId);
+
+var result = new Scriban.Runtime.ScriptObject();
+foreach (var s in settings)
+{
+    result.Add(s.Key.ToLowerInvariant(), s.Value);
+}
+return result;
+```

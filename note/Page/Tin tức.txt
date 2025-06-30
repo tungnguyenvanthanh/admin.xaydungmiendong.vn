@@ -1,0 +1,51 @@
+<!--componentHtml:PageTitle title="Tin tức" background="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/24.jpg" breadcrumbs='{"/":"Trang chủ", "#":"Tin tức"}' -->
+
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Content Side -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <h3 class="project-detail_title">Cập nhật xu hướng – chia sẻ kinh nghiệm.</h3>
+                        <p>Tại <strong>Miền Đông JSC</strong>, chúng tôi không chỉ thi công những công trình chất lượng mà còn mong muốn trở thành nơi khách hàng và đối tác có thể tìm thấy thông tin hữu ích, góc nhìn chuyên môn và cảm hứng sáng tạo.</p>
+                        <h3 class="project-detail_title">Lan tỏa giá trị ngành xây dựng</h3>
+                        <p>Tổng hợp các bài viết về kiến trúc, nội thất, vật liệu xây dựng, kỹ thuật thi công, cũng như những hoạt động nổi bật của công ty. Mỗi bài viết là một giá trị mà chúng tôi trân trọng gửi đến bạn.</p>
+                    </div>
+
+                    <!--componentHtml:ListBlog-->
+
+                </div>
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar">
+
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget search-box">
+                        <!--componentHtml:SearchWidget-->
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget categories-widget">
+                        <!--componentHtml:CategoriesWidget-->
+                    </div>
+
+                    <!-- Post Widget -->
+                    <div class="sidebar-widget post-widget">
+                        <!--componentHtml:RecentNewsWidget-->
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget popular-tags">
+                        <!--componentHtml:TagsWidget-->
+                    </div>
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</div>

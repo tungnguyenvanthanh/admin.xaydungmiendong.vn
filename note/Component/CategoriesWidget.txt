@@ -1,0 +1,11 @@
+<div class="widget-content">
+	<h5 class="sidebar-widget_title">Danh mục</h5>
+	<ul class="service-list_two">
+		<li><a>@item.Name</a></li>
+		<li><a>@item.Name</a></li>
+		<li><a>@item.Name</a></li>
+		<li><a>@item.Name</a></li>
+		<li><a>@item.Name</a></li>
+		<li><a>@item.Name</a></li>
+	</ul>
+</div>

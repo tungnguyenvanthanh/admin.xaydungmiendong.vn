@@ -1,0 +1,40 @@
+@if (ViewBag.IsFooter == false)
+{
+	<div class="widget-content">
+		<h5 class="sidebar-widget_title">Tin tức gần đây</h5>
+
+		@foreach (var item in Model)
+		{
+			<div class="post">
+				<div class="thumb img-cover-container">
+					<a asp-controller="BlogPage" asp-action="Detail" asp-route-slug="@item.Slug" asp-route-id="@item.Id" class="h-100">
+						<img src="@item.ThumbnailUrl" alt="@item.Title">
+					</a>
+				</div>
+				<div class="post-date">@item.CreatedAt.FormatDataTime()</div>
+				<h6>
+					<a asp-controller="BlogPage" asp-action="Detail" asp-route-slug="@item.Slug" asp-route-id="@item.Id" class="text-ellipsis-2">@item.Title</a>
+				</h6>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<div class="footer-widget post-widget">
+		<h5 class="footer-title">Tin tức gần đây</h5>
+
+		@foreach (var item in Model)
+		{
+			<div class="news-widget-block">
+				<div class="news-widget_image img-cover-container">
+					<img src="@item.ThumbnailUrl" alt="@item.Title" />
+				</div>
+				<div class="news-widget_post-date">@item.CreatedAt.FormatDataTime()</div>
+				<h6 class="news-widget_title">
+					<a asp-controller="BlogPage" asp-action="Detail" asp-route-slug="@item.Slug" asp-route-id="@item.Id" class="text-ellipsis-2">@item.Title</a>
+				</h6>
+			</div>
+		}
+	</div>
+}

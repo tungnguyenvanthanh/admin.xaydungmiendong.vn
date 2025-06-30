@@ -1,0 +1,87 @@
+Html
+```
+{{ for item in model.data }}
+<div class="news-block_two col-md-6 col-sm-12">
+    <div class="news-block_two-inner">
+        <div class="news-block_two-image">
+            <a href="/tin-tuc/{{ item.slug }}-{{ item.id }}">
+                <img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}" />
+            </a>
+        </div>
+        <div class="news-block_two-content">
+            <div class="news-block_two-title">{{ item.createdAtText }}</div>
+            <h5 class="news-block_two-heading">
+                <a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="text-ellipsis-3">{{ item.title }}</a>
+            </h5>
+            <ul class="news-block_two-meta">
+                <li><span class="icon fa fa-user"></span>{{ item.authorName }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+<div class="col-12">
+    <!--componentHtml:Pagination page='{{ model.page }}' size='{{ model.size }}' total='{{ model.total }}' url='tin-tuc'-->
+</div>
+```
+Script
+```
+var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
+var _blogService = Services.GetRequiredService<IBlogService>();
+var _langService = Services.GetRequiredService<LanguageService>();
+var _mapper = Services.GetRequiredService<IMapper>();
+var culture = _currentUserContext.CountryCode;
+var timezone = _currentUserContext.TimeZone;
+
+var lang = _langService.GetCurrentLanguage();
+var query = HttpContext.Request.Query;
+
+var page = Params.ContainsKey("page")
+    ? Convert.ToInt32(Params["page"])
+    : (query.ContainsKey("page") ? Convert.ToInt32(query["page"]) : 1);
+
+var size = Params.ContainsKey("size")
+    ? Convert.ToInt32(Params["size"])
+    : (query.ContainsKey("size") ? Convert.ToInt32(query["size"]) : 10);
+
+// Lấy danh sách translations đã fallback
+var (translations, total) = await _blogService.GetTranslationsWithFallbackAsync(page, size);
+
+// ✅ Map để tránh object cycle
+var mappedTranslations = _mapper.Map<List<BlogTranslationModel>>(translations) ?? new();
+
+// Format time
+foreach (var model in mappedTranslations)
+{
+    model.CreatedAtText = model.CreatedAt.FormatDateTime(culture, timezone);
+    model.UpdatedAtText = model.UpdatedAt.FormatDateTime(culture, timezone);
+}
+
+// Helper convert object → camelCase dictionary
+Dictionary<string, object?> ToCamelDict(object obj)
+{
+    var json = JsonSerializer.Serialize(obj, new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = null,
+        DefaultIgnoreCondition = JsonIgnoreCondition.Never
+    });
+
+    var dict = JsonSerializer.Deserialize<Dictionary<string, object?>>(json)!;
+    return dict.ToDictionary(
+        kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
+        kvp => kvp.Value
+    );
+}
+
+// Convert data
+var items = mappedTranslations.Select(ToCamelDict).ToList();
+
+return new
+{
+    data = items,
+    page = page,
+    size = size,
+    total = total
+};
+```

@@ -1,0 +1,178 @@
+Html
+```
+<section class="contact-one" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/map.png)">
+	<div class="contact-one_curve"></div>
+	<div class="auto-container">
+		<div class="inner-container">
+			<div class="contact-one_image">
+				<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/resource/contact.jpg" alt="" />
+				<div class="contact-one_ball" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/ball.png)"></div>
+			</div>
+			<div class="contact-one_image-two">
+				<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/resource/contact-1.jpg" alt="" />
+			</div>
+			<div class="row clearfix">
+
+				<!-- Info Column -->
+				<div class="contact-one_info-column col-lg-5 col-md-12 col-sm-12">
+					<div class="contact-one_info-outer">
+						<h2 class="contact-one_title">Hãy liên hệ với chúng tôi</h2>
+						<ul class="contact-one_list">
+							<li>
+                              	<span class="flaticon-telephone"></span>
+                              	<strong>Điện thoại</strong>
+                              	{{ model.phone }}
+                          	</li>
+							<li>
+                              	<span class="flaticon-pin"></span>
+                              	<strong>Địa chỉ</strong>
+                              	{{ model.address }}
+                          	</li>
+						</ul>
+                      	<div class="contact-one_phone">
+                          	<div class="contact-one_phone-inner">
+                            	<div class="side-icon flaticon-wood-1"></div>
+                            	<div class="icon flaticon-comment"></div>
+                            	Email <br>
+                            	<a href="mailto:@email">{{ model.email }}</a>
+                          	</div>
+                      	</div>
+					</div>
+				</div>
+
+				<!-- Content Column -->
+				<div class="contact-one_form-column col-lg-7 col-md-12 col-sm-12">
+					<div class="contact-one_form-outer">
+						<div class="title-box">
+							<h3>Tổng quan ngắn gọn về không gian bạn muốn trang trí.</h3>
+							<div class="text">Hãy chia sẻ với chúng tôi vài nét về không gian bạn muốn kiến tạo. Dù là ngôi nhà mơ ước, văn phòng lý tưởng hay một công trình đặc biệt, chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng bạn.</div>
+						</div>
+
+						<!-- Default Form -->
+						<div class="default-form contact-form">
+							<form id="contact-form-widget">
+								<div class="row clearfix">
+									<input type="text" name="Title" value="Tư vấn & hổ trợ" hidden>
+
+									<div class="col-sm-12 form-group">
+										<input type="text" name="FullName" placeholder="Họ và tên*" required>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
+										<input type="text" name="PhoneNumber" placeholder="Điện thoại*" required>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 form-group">
+										<input type="text" name="Email" placeholder="Email">
+									</div>
+
+									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+										<textarea name="Description" placeholder="Lời nhắn" required></textarea>
+									</div>
+
+									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+										<!-- Button Box -->
+										<button type="submit" class="theme-btn submit-btn ladda-btn" data-style="zoom-in">
+											Gửi tin nhắn
+										</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+						<!-- End Default Form -->
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	$(() => {
+		var contactFormWidget = $('#contact-form-widget');
+		var btnSubmit = Ladda.create(contactFormWidget.find(".ladda-btn")[0]);
+
+		contactFormWidget.validate({
+			rules: {
+				FullName: {
+					required: true
+				},
+				PhoneNumber: {
+					required: true
+				},
+				Description: {
+					required: true
+				},
+				Email: {
+					email: true
+				}
+			},
+			messages: {
+				FullName: "Vui lòng nhập tên của bạn",
+				PhoneNumber: "Vui lòng nhập số điện thoại của bạn",
+				Description: "Vui lòng nhập lời nhắn của bạn",
+				Email: "Vui lòng nhập địa chỉ email hợp lệ",
+			},
+			submitHandler: function (form){
+				btnSubmit.start();
+
+				var formData = $(form).serializeArray();
+				var jsonData = {};
+
+				$.each(formData, function (index, field) {
+					jsonData[field.name] = field.value;
+				});
+
+				$.ajax({
+					type: "POST",
+					contentType: "application/json",
+					url: "api/customers",
+					data: JSON.stringify(jsonData),
+					success: function (response) {
+						$.toast({
+							heading: 'Thành công',
+							text: 'Gửi lời nhắn thành công, chúng tôi sẽ liên hệ bạn trong thời gian gần nhất.',
+							icon: 'info',
+							loader: true,
+							hideAfter: 10000
+						});
+
+						setTimeout(() => {
+							$(form)[0].reset();
+							btnSubmit.stop();
+						}, 3000)
+					},
+					error: function (error) {
+						$.toast({
+							heading: 'Đã có lỗi',
+							text: error.responseJSON.title,
+							icon: 'error',
+							loader: true,
+							hideAfter: 10000
+						});
+						btnSubmit.stop();
+					}
+				});
+			}
+		});
+	})
+</script>
+```
+Script
+```
+var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
+
+var service = Services.GetRequiredService<ISiteSettingService>();
+
+var settings = await service.GetAsync(_currentUserContext.TenantId);
+
+var result = new Scriban.Runtime.ScriptObject();
+foreach (var s in settings)
+{
+    result.Add(s.Key.ToLowerInvariant(), s.Value);
+}
+return result;
+```

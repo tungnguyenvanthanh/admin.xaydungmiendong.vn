@@ -1,0 +1,31 @@
+Html
+```
+<section class="page-title" style="background-image:url({{ model.background }})">
+    <div class="auto-container">
+        <h3 class="text-white">{{ model.title }}</h3>
+        <ul class="bread-crumb clearfix">
+            {{ for item in model.breadcrumbs }}
+            {{ if item.key == "#" }}
+            <li>{{ item.value }}</li>
+            {{ else }}
+            <li><a href="{{ item.key }}">{{ item.value }}</a></li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+</section>
+```
+Script
+```
+var background = Params["background"]?.ToString();
+var title = Params["title"]?.ToString();
+var breadcrumbs = Params["breadcrumbs"];
+
+var result = new Scriban.Runtime.ScriptObject();
+
+result.Add("background", background);
+result.Add("title", title);
+result.Add("breadcrumbs", breadcrumbs);
+
+return result;
+```

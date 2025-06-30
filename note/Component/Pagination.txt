@@ -1,0 +1,143 @@
+Html
+```
+{{ if model.pagination.size > 0 }}
+<ul class="styled-pagination">
+    {{ for item in model.pagination }}
+    {{ if item.isEllipsis == 'True' }}
+    <li><span>...</span></li>
+    {{ else }}
+    <li class="
+             {{ if item.text == '<' }}back{{ else if item.text == '>' }}next{{ end }}
+             {{ if item.isDisabled == 'True' }} disabled{{ end }}
+		">
+        <a {{ if item.isDisabled != 'True' }} href="{{ model.url }}?page={{ item.pageNumber }}&size={{ item.pageSize }}" {{ end }} class="{{ if item.isActive == 'True' }}active{{ end }}">
+            {{ if item.text == '<' }}
+            <span class='fa fa-angle-double-left'></span>
+            {{ else if item.text == '>' }}
+            <span class='fa fa-angle-double-right'></span>
+            {{ else }}
+            <span>{{ item.text }}</span>
+            {{ end }}
+        </a>
+    </li>
+    {{ end }}
+    {{ end }}
+</ul>
+{{ end }}
+```
+Script
+```
+var page = Params.ContainsKey("page") ? Convert.ToInt32(Params["page"]) : 1;
+var size = Params.ContainsKey("size") ? Convert.ToInt32(Params["size"]) : 5;
+var total = Params.ContainsKey("total") ? Convert.ToInt32(Params["total"]) : 1;
+var url = Params.ContainsKey("url") ? Params["url"] : "";
+
+if (size > 50) { size = 50; }
+
+Dictionary<string, object?> ToCamelDict(object obj)
+{
+    var json = JsonSerializer.Serialize(obj, new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = null,
+        DefaultIgnoreCondition = JsonIgnoreCondition.Never
+    });
+
+    var dict = JsonSerializer.Deserialize<Dictionary<string, object?>>(json)!;
+    return dict.ToDictionary(
+        kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
+        kvp => kvp.Value
+    );
+}
+
+var paginationItems = new List<PaginationItem>();
+
+var totalPages = (int)Math.Ceiling((double)total / size);
+if (totalPages <= 1)
+{
+    return new
+    {
+        pagination = new List<Dictionary<string, object?>>(),
+        url = url
+    };
+}
+
+// Nút "<" (Back)
+paginationItems.Add(new PaginationItem
+{
+    Text = "<",
+    PageNumber = page > 1 ? page - 1 : null,
+    PageSize = size,
+    IsDisabled = page == 1
+});
+
+// Trang đầu tiên luôn hiển thị
+paginationItems.Add(new PaginationItem
+{
+    Text = "1",
+    PageNumber = 1,
+    PageSize = size,
+    IsActive = page == 1
+});
+
+int left = page - 1;
+int right = page + 1;
+
+if (left > 2)
+{
+    paginationItems.Add(new PaginationItem
+    {
+        Text = "...",
+        PageSize = size,
+        IsEllipsis = true
+    });
+}
+
+for (int i = Math.Max(2, left); i <= Math.Min(totalPages - 1, right); i++)
+{
+    paginationItems.Add(new PaginationItem
+    {
+        Text = i.ToString(),
+        PageNumber = i,
+        PageSize = size,
+        IsActive = i == page
+    });
+}
+
+if (right < totalPages - 1)
+{
+    paginationItems.Add(new PaginationItem
+    {
+        Text = "...",
+        PageSize = size,
+        IsEllipsis = true
+    });
+}
+
+// Trang cuối (nếu > 1 và chưa được add)
+if (totalPages > 1)
+{
+    paginationItems.Add(new PaginationItem
+    {
+        Text = totalPages.ToString(),
+        PageNumber = totalPages,
+        PageSize = size,
+        IsActive = page == totalPages
+    });
+}
+
+// Nút ">" (Next)
+paginationItems.Add(new PaginationItem
+{
+    Text = ">",
+    PageNumber = page < totalPages ? page + 1 : null,
+    PageSize = size,
+    IsDisabled = page == totalPages
+});
+
+var result = paginationItems.Select(ToCamelDict).ToList();
+return new
+{
+    pagination = result,
+    url = url
+};
+```

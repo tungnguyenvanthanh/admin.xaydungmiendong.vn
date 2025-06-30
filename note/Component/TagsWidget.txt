@@ -1,0 +1,11 @@
+<div class="widget-content">
+	<h5 class="sidebar-widget_title">Thẻ</h5>
+	<div class="popular-tags_inner">
+		<a href="#">@item.Name</a>
+		<a href="#">@item.Name</a>
+		<a href="#">@item.Name</a>
+		<a href="#">@item.Name</a>
+		<a href="#">@item.Name</a>
+		<a href="#">@item.Name</a>
+	</div>
+</div>
