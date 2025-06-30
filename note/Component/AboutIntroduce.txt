@@ -1,0 +1,61 @@
+Html
+```
+<section class="about-one">
+	<div class="about-one_ball" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/ball.png)"></div>
+	<div class="about-one_lamp" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/lamp.png)"></div>
+	<div class="auto-container">
+		<div class="row clearfix">
+			<!-- Image Column -->
+			<div class="about-one_image-column col-lg-5 col-md-12 col-sm-12">
+				<div class="about-one_image-outer">
+					<div class="about-one_image">
+						<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/resource/about.png" alt="" />
+					</div>
+					<div class="about-one_experiance">
+						<div class="about-one_circle" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/experiance.png)"></div>
+						<span>10</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Content Column -->
+			<div class="about-one_content-column col-lg-7 col-md-12 col-sm-12">
+				<div class="about-one_content-outer">
+					<div class="sec-title">
+						<div class="sec-title_title"><i class="flaticon-wood-1"></i> Giới thiệu</div>
+						<h2 class="sec-title_heading mb-3">Miền Đông JSC</h2>
+						<h3>Hơn cả xây dựng, chúng tôi kiến tạo giá trị bền vững.</h3>
+						<div class="sec-title_text m-3">Từ những viên gạch đầu tiên, <strong>Miền Đông JSC</strong> đã không ngừng nỗ lực trở thành một trong những đơn vị thi công và thiết kế đáng tin cậy tại Việt Nam. Với tinh thần sáng tạo, đội ngũ chuyên nghiệp và sự tận tâm trong từng công trình, chúng tôi tin rằng mỗi ngôi nhà, mỗi không gian được tạo ra không chỉ để ở – mà còn để truyền cảm hứng sống.</div>
+						<h3>Sứ mệnh</h3>
+						<div class="sec-title_text"><strong>Miền Đông JSC</strong> được thành lập với sứ mệnh mang đến những công trình chất lượng – thẩm mỹ – hiệu quả, đồng hành cùng khách hàng trong hành trình biến ý tưởng thành hiện thực. Chúng tôi – tập hợp đội ngũ kiến trúc sư, kĩ sư trẻ được đào tạo bài bản, kinh nghiệm nhiều năm trong nghề, có nhiệt huyết sức trẻ, sáng tạo kết hợp với đội thợ lành nghề xác định với sứ mệnh xây dựng ước mơ – nhiều ngôi nhà, công trình tâm huyết cho quý khách hàng trên khắp Việt Nam</div>
+					</div>
+					<div class="about-one_text">Với triết lý “Xây dựng bằng tâm – Vững bước bằng uy tín”, chúng tôi cam kết:</div>
+					<div class="row clearfix">
+						<div class="column col-lg-6 col-md-6 col-sm-12">
+							<ul class="about-one_list">
+								<li><i class="flaticon-checked-1"></i><b>Chất lượng</b> luôn đặt lên hàng đầu</li>
+								<li><i class="flaticon-checked-1"></i><b>Tiến độ</b> đúng cam kết, rõ ràng từng giai đoạn</li>
+							</ul>
+						</div>
+						<div class="column col-lg-6 col-md-6 col-sm-12">
+							<ul class="about-one_list">
+								<li><i class="flaticon-checked-1"></i><b>Giải pháp</b> tối ưu cho từng ngân sách và nhu cầu</li>
+								<li><i class="flaticon-checked-1"></i>Hậu mãi chu đáo, đồng hành cùng khách hàng sau mỗi công trình</li>
+							</ul>
+						</div>
+					</div>
+					<!-- About Button -->
+					<div class="about-one_button">
+						<a href="/lien-he" class="theme-btn btn-style-one">
+							<span class="btn-wrap">
+								<span class="text-one">Liên hệ ngay</span>
+								<span class="text-two">Liên hệ ngay</span>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+```

@@ -14,7 +14,7 @@ Html
                 <a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="text-ellipsis-3">{{ item.title }}</a>
             </h5>
             <ul class="news-block_two-meta">
-                <li><span class="icon fa fa-user"></span>{{ item.authorName }}</li>
+                <li><span class="icon fa fa-user"></span>{{ item.author.name }}</li>
             </ul>
         </div>
     </div>
@@ -27,35 +27,54 @@ Html
 ```
 Script
 ```
+// Lấy service
 var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
 var _blogService = Services.GetRequiredService<IBlogService>();
 var _langService = Services.GetRequiredService<LanguageService>();
 var _mapper = Services.GetRequiredService<IMapper>();
+var _userRefService = Services.GetRequiredService<IUserReferenceService>(); // Nếu muốn enrich Author
+
+// Culture & Timezone
 var culture = _currentUserContext.CountryCode;
 var timezone = _currentUserContext.TimeZone;
 
+// Ngôn ngữ hiện tại
 var lang = _langService.GetCurrentLanguage();
+
+// Phân trang
 var query = HttpContext.Request.Query;
-
-var page = Params.ContainsKey("page")
-    ? Convert.ToInt32(Params["page"])
+var page = Params.ContainsKey("page") ? Convert.ToInt32(Params["page"])
     : (query.ContainsKey("page") ? Convert.ToInt32(query["page"]) : 1);
-
-var size = Params.ContainsKey("size")
-    ? Convert.ToInt32(Params["size"])
+var size = Params.ContainsKey("size") ? Convert.ToInt32(Params["size"])
     : (query.ContainsKey("size") ? Convert.ToInt32(query["size"]) : 10);
 
-// Lấy danh sách translations đã fallback
+// Lấy translations đã fallback (đã chọn đúng language)
 var (translations, total) = await _blogService.GetTranslationsWithFallbackAsync(page, size);
 
-// ✅ Map để tránh object cycle
+// Map tránh vòng lặp navigation
 var mappedTranslations = _mapper.Map<List<BlogTranslationModel>>(translations) ?? new();
 
-// Format time
+// Format thời gian
 foreach (var model in mappedTranslations)
 {
     model.CreatedAtText = model.CreatedAt.FormatDateTime(culture, timezone);
     model.UpdatedAtText = model.UpdatedAt.FormatDateTime(culture, timezone);
+}
+
+// Enrich Author nếu cần
+var authorIds = mappedTranslations.Select(x => x.AuthorId).Where(x => x != Guid.Empty).Distinct().ToList();
+var authorDict = new Dictionary<Guid, UserModel>();
+var authorTasks = authorIds.Select(async id =>
+{
+    var user = await _userRefService.GetUserAsync(id);
+    authorDict[id] = user;
+});
+await Task.WhenAll(authorTasks);
+
+// Gán Author
+foreach (var item in mappedTranslations)
+{
+    item.Author = authorDict.GetValueOrDefault(item.AuthorId) ?? new UserModel();
 }
 
 // Helper convert object → camelCase dictionary
@@ -68,15 +87,28 @@ Dictionary<string, object?> ToCamelDict(object obj)
     });
 
     var dict = JsonSerializer.Deserialize<Dictionary<string, object?>>(json)!;
-    return dict.ToDictionary(
+    var camelDict = dict.ToDictionary(
         kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
         kvp => kvp.Value
     );
+
+    if (obj is BlogTranslationModel model && model.Author is not null)
+    {
+        var authorJson = JsonSerializer.Serialize(model.Author);
+        var authorDict = JsonSerializer.Deserialize<Dictionary<string, object?>>(authorJson)!;
+        camelDict["author"] = authorDict.ToDictionary(
+            kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
+            kvp => kvp.Value
+        );
+    }
+
+    return camelDict;
 }
 
-// Convert data
+// Chuyển sang items camelCase
 var items = mappedTranslations.Select(ToCamelDict).ToList();
 
+// Trả kết quả cho Scriban
 return new
 {
     data = items,

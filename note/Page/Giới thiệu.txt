@@ -1,1 +1,82 @@
-<h1>Đây là trang giới thiệu</h1>
+<!--componentHtml:PageTitle title="Giới thiệu" background="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/24.jpg" breadcrumbs='{"/":"Trang chủ", "#":"Giới thiệu"}' -->
+
+<!--componentHtml:AboutIntroduce-->
+
+<section class="services-one">
+	<div class="services-one_bg" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/ball.png)"></div>
+	<div class="auto-container">
+		<div class="row clearfix">
+
+			<!-- Service Block One -->
+			<div class="service-block_one col-lg-4 col-md-6 col-sm-6">
+				<div class="service-block_one-inner" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-1.png)">
+					<div class="service-block_one-upper">
+						<div class="service-block_one-icon flaticon-paint-roll"></div>
+						<h4 class="service-block_one-heading"><a href="service-detail.html">Tư vấn thiết kế kiến trúc – nội thất</a></h4>
+					</div>
+					<div class="service-block_one-text">Chúng tôi mang đến những giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho từng không gian sống, làm việc. Mỗi bản vẽ đều được nghiên cứu kỹ lưỡng dựa trên nhu cầu thực tế, phong cách cá nhân và xu hướng kiến trúc hiện đại.</div>
+				</div>
+			</div>
+
+			<!-- Service Block One -->
+			<div class="service-block_one col-lg-4 col-md-6 col-sm-6">
+				<div class="service-block_one-inner" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-1.png)">
+					<div class="service-block_one-upper">
+						<div class="service-block_one-icon flaticon-tiles"></div>
+						<h4 class="service-block_one-heading"><a href="service-detail.html">Thi công xây dựng nhà ở, văn phòng</a></h4>
+					</div>
+					<div class="service-block_one-text">Đội ngũ thi công chuyên nghiệp, giàu kinh nghiệm của <strong>XÂY DỰNG MIỀN ĐÔNG</strong> luôn cam kết đảm bảo tiến độ, chất lượng, và an toàn trong từng công trình. Chúng tôi xây dựng không chỉ bằng kỹ thuật – mà bằng sự tận tâm và uy tín.</div>
+				</div>
+			</div>
+
+			<!-- Service Block One -->
+			<div class="service-block_one col-lg-4 col-md-6 col-sm-6">
+				<div class="service-block_one-inner" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-1.png)">
+					<div class="service-block_one-upper">
+						<div class="service-block_one-icon flaticon-punctuality"></div>
+						<h4 class="service-block_one-heading"><a href="service-detail.html">Cải tạo, sửa chữa và hoàn thiện không gian</a></h4>
+					</div>
+					<div class="service-block_one-text">Từ những không gian cũ kỹ, xuống cấp hoặc không còn phù hợp, chúng tôi giúp “thay áo mới” bằng các giải pháp cải tạo hiệu quả, hợp lý chi phí và đúng kỹ thuật – mang lại diện mạo mới, tiện nghi hơn, đẹp hơn và bền vững hơn.</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section class="cta-one">
+	<div class="cta-one_bg" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/1.jpg)"></div>
+	<div class="cta-one_ball" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/ball-1.png)"></div>
+	<div class="auto-container">
+		<div class="row clearfix">
+
+			<!-- CTA One Image -->
+			<div class="cta-one_images-column col-lg-4 col-md-6 col-sm-6">
+				<div class="cta-one_images-outer">
+					<div class="cta-one_image">
+						<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/resource/cta-1.jpg" alt="" />
+					</div>
+					<div class="cta-one_image-two">
+						<img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/resource/cta-2.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA One Content -->
+			<div class="cta-one_content-column col-lg-8 col-md-8 col-sm-6">
+				<div class="cta-one_content-outer">
+					<h2 class="cta-one_title">Mỗi công trình là một câu chuyện – và chúng tôi tự hào là người kể bằng vật liệu</h2>
+					<div class="cta-one_button">
+						<a href="/du-an" class="theme-btn btn-style-three">
+							<span class="btn-wrap">
+								<span class="text-one">Các dự án</span>
+								<span class="text-two">Các dự án</span>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
