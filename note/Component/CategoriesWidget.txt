@@ -1,11 +1,28 @@
+Html
+```
 <div class="widget-content">
-	<h5 class="sidebar-widget_title">Danh mục</h5>
-	<ul class="service-list_two">
-		<li><a>@item.Name</a></li>
-		<li><a>@item.Name</a></li>
-		<li><a>@item.Name</a></li>
-		<li><a>@item.Name</a></li>
-		<li><a>@item.Name</a></li>
-		<li><a>@item.Name</a></li>
-	</ul>
+    <h5 class="sidebar-widget_title">Danh mục</h5>
+    <ul class="service-list_two">
+        {{ for item in model }}
+        <li><a href="/tin-tuc?category={{ item.translations[0].slug }}">{{ item.translations[0].name }}</a></li>
+        {{ end }}
+    </ul>
 </div>
+```
+Script
+```
+// Lấy service
+var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
+var _blogCategoryService = Services.GetRequiredService<IBlogCategoryService>();
+var _mapper = Services.GetRequiredService<IMapper>();
+
+var data = await _blogCategoryService.GetTranslationsWithFallbackAsync();
+var mapped = _mapper.Map<List<BlogCategoryModel>>(data) ?? new();
+
+// Chuyển sang items camelCase
+var items = mapped.Select(AppExtensions.ObjectToCamelCase).ToList();
+
+// Trả kết quả cho Scriban
+return items;
+
+```

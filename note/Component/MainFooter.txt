@@ -33,7 +33,7 @@ Html
 
 							<!-- Footer Column -->
 							<div class="footer_column col-lg-6 col-md-6 col-sm-12">
-								<!--RecentNewsWidget-->
+								<!--componentHtml:RecentNewsWidget isFooter='true'-->
 							</div>
 
 						</div>

@@ -30,16 +30,12 @@ Script
 // Lấy service
 var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
 var _blogService = Services.GetRequiredService<IBlogService>();
-var _langService = Services.GetRequiredService<LanguageService>();
 var _mapper = Services.GetRequiredService<IMapper>();
 var _userRefService = Services.GetRequiredService<IUserReferenceService>(); // Nếu muốn enrich Author
 
 // Culture & Timezone
 var culture = _currentUserContext.CountryCode;
 var timezone = _currentUserContext.TimeZone;
-
-// Ngôn ngữ hiện tại
-var lang = _langService.GetCurrentLanguage();
 
 // Phân trang
 var query = HttpContext.Request.Query;
@@ -77,36 +73,8 @@ foreach (var item in mappedTranslations)
     item.Author = authorDict.GetValueOrDefault(item.AuthorId) ?? new UserModel();
 }
 
-// Helper convert object → camelCase dictionary
-Dictionary<string, object?> ToCamelDict(object obj)
-{
-    var json = JsonSerializer.Serialize(obj, new JsonSerializerOptions
-    {
-        PropertyNamingPolicy = null,
-        DefaultIgnoreCondition = JsonIgnoreCondition.Never
-    });
-
-    var dict = JsonSerializer.Deserialize<Dictionary<string, object?>>(json)!;
-    var camelDict = dict.ToDictionary(
-        kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
-        kvp => kvp.Value
-    );
-
-    if (obj is BlogTranslationModel model && model.Author is not null)
-    {
-        var authorJson = JsonSerializer.Serialize(model.Author);
-        var authorDict = JsonSerializer.Deserialize<Dictionary<string, object?>>(authorJson)!;
-        camelDict["author"] = authorDict.ToDictionary(
-            kvp => char.ToLowerInvariant(kvp.Key[0]) + kvp.Key[1..],
-            kvp => kvp.Value
-        );
-    }
-
-    return camelDict;
-}
-
 // Chuyển sang items camelCase
-var items = mappedTranslations.Select(ToCamelDict).ToList();
+var items = mappedTranslations.Select(AppExtensions.ObjectToCamelCase).ToList();
 
 // Trả kết quả cho Scriban
 return new

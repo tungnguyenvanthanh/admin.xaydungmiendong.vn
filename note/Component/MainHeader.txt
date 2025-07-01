@@ -34,7 +34,7 @@ Html
 						<!-- Logo Box -->
 						<div class="logo-box">
 							<div class="logo">
-								<a asp-controller="HomePage" asp-action="Index">
+								<a href="/">
 										<img class="logo-img" src="{{ model.sitelogo }}" alt="{{ model.sitename }}" title="{{ model.sitename }}">
 										<img class="logo-icon" src="{{ model.sitelogoicon }}" alt="{{ model.sitename }}" title="{{ model.sitename }}">
 									</a>
@@ -75,7 +75,7 @@ Html
 													</ul>
 												</li>
 												<li><a>Cơ cấu tổ chức</a></li>
-												<li><a asp-controller="TeamPage" asp-action="Index">Đội ngũ lãnh đạo</a></li>
+												<li><a href="/teams">Đội ngũ lãnh đạo</a></li>
 												<li><a>Trình độ chuyên môn</a></li>
 												<li><a>Năng lực thi công</a></li>
 												<li><a>Hệ thống quản lý</a></li>
