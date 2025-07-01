@@ -12,7 +12,6 @@ Html
 Script
 ```
 // Lấy service
-var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
 var _blogCategoryService = Services.GetRequiredService<IBlogCategoryService>();
 var _mapper = Services.GetRequiredService<IMapper>();
 
