@@ -1,0 +1,24 @@
+Html
+```
+<select name="RequestType">
+    {{ for item in model }}
+    <option value="{{ item.name }}">{{ item.text }}</option>
+    {{ end }}
+</select>
+```
+Script
+```
+using CustomerEnum;
+
+var result = Enum.GetValues(typeof(RequestTypeOption))
+    .Cast<RequestTypeOption>()
+    .Select(e => new
+    {
+        name = e.ToString(),
+        value = Convert.ToInt32(e),
+        text = e.GetDescription()
+    })
+    .ToList();
+
+return result;
+```

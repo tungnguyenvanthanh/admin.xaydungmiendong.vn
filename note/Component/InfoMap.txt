@@ -1,0 +1,60 @@
+Html
+```
+<section class="map-one">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Info Column -->
+            <div class="info-column col-lg-5 col-md-12 col-sm-12">
+                <div class="info-column_inner">
+                    <h3 class="map-one_title">Xin đừng ngần ngại liên hệ với chúng tôi nếu có bất kỳ thắc mắc nào</h3>
+                    <div class="map-one_text">Bạn cũng có thể liên hệ với chúng tôi qua điện thoại hoặc email</div>
+                    <ul class="map-one_info">
+                        <li>
+                            <span class="icon flaticon-map"></span>
+                            <strong>Địa chỉ</strong>
+                            {{ model.address }}
+                        </li>
+                        <li>
+                            <span class="icon flaticon-telephone-1"></span>
+                            <strong>Liên hệ</strong>
+                            <a href="tel:{{ model.phone }}">{{ model.phone }}</a>
+                            <br>
+                            <a href="mailto:{{ model.email }}">{{ model.email }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Team Block One -->
+            <div class="map-column col-lg-7 col-md-12 col-sm-12">
+                <div class="map-column_inner">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.376944801613!2d107.8095707!3d11.524794799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f63342b00b7b%3A0xe3e50037a1bf060d!2zNzUgSG_DoGkgVGhhbmgsIEzhu5ljIFPGoW4sIELhuqNvIEzhu5ljLCBMw6JtIMSQ4buTbmc!5e0!3m2!1svi!2s!4v1751407637118!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .map-one iframe{
+      filter: none;
+    }
+</style>
+```
+Script
+```
+var _currentUserContext = Services.GetRequiredService<ICurrentUserContext>();
+
+var service = Services.GetRequiredService<ISiteSettingService>();
+
+var settings = await service.GetAsync(_currentUserContext.TenantId);
+
+var result = new Scriban.Runtime.ScriptObject();
+foreach (var s in settings)
+{
+    result.Add(s.Key.ToLowerInvariant(), s.Value);
+}
+return result;
+```
