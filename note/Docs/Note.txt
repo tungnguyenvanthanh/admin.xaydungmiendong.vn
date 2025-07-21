@@ -1,0 +1,5 @@
+- Logic Page của Website chưa đúng, đặc biệt hàm Create và Update
+- Trong Website có các component cũng không đúng logic do đa ngôn ngữ, giống như Page
+- Xóa 1 bản dịch của category
+- Xóa toàn bộ và 1 của blog
+- detail của blog
