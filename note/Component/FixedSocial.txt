@@ -1,0 +1,157 @@
+<div class="fixed-social">
+   <a
+      class="social-icon facebook"
+      href="https://facebook.com"
+      target="_blank"
+      title="Facebook"
+   >
+      <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+   </a>
+   <a
+      class="social-icon instagram"
+      href="https://instagram.com"
+      target="_blank"
+      title="Instagram"
+   >
+      <iconify-icon icon="ri:instagram-fill"></iconify-icon>
+   </a>
+   <a
+      class="social-icon zalo"
+      href="https://zalo.me"
+      target="_blank"
+      title="Zalo"
+   >
+      <iconify-icon icon="simple-icons:zalo"></iconify-icon>
+   </a>
+   <a
+      class="social-icon youtube"
+      href="https://youtube.com"
+      target="_blank"
+      title="YouTube"
+   >
+      <iconify-icon icon="ri:youtube-fill"></iconify-icon>
+   </a>
+</div>
+
+<style>
+   .fixed-social {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9999;
+   }
+
+   .social-icon {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation:
+         pulse 2.5s infinite,
+         shake 4s infinite ease-in-out;
+      transition: transform 0.2s;
+   }
+
+   .social-icon:hover {
+      transform: scale(1.1);
+   }
+
+   .social-icon::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: wave 2.5s infinite;
+        z-index: -1;
+        opacity: 0.8; /* <-- Tăng độ đậm */
+    }
+
+   iconify-icon {
+      font-size: 24px;
+      color: white;
+   }
+
+   /* Brand Colors */
+   .facebook {
+      background-color: #1877f2;
+   }
+   .facebook::before {
+      background: rgba(24, 119, 242, 0.3);
+   }
+
+   .instagram {
+      background: radial-gradient(
+         circle at 30% 30%,
+         #feda75,
+         #d62976,
+         #962fbf,
+         #4f5bd5
+      );
+   }
+   .instagram::before {
+      background: rgba(214, 41, 118, 0.3);
+   }
+
+   .zalo {
+      background-color: #0084ff;
+   }
+   .zalo::before {
+      background: rgba(0, 132, 255, 0.3);
+   }
+
+   .youtube {
+      background-color: #ff0000;
+   }
+   .youtube::before {
+      background: rgba(255, 0, 0, 0.3);
+   }
+
+   /* Animations */
+   @keyframes pulse {
+      0% {
+         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+      }
+      70% {
+         box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+      }
+      100% {
+         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+   }
+
+   /* Tỏa sóng */
+    @keyframes wave {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0.2; /* <-- Vẫn giữ lại 1 chút tỏa mờ */
+    }
+    }
+
+   @keyframes shake {
+      0%,
+      100% {
+         transform: translateX(0);
+      }
+      25% {
+         transform: translateX(-2px);
+      }
+      50% {
+         transform: translateX(2px);
+      }
+      75% {
+         transform: translateX(-1px);
+      }
+   }
+</style>
