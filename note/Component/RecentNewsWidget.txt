@@ -7,13 +7,13 @@ Html
       	{{ for item in model.items }}
           	<div class="post">
 				<div class="thumb img-cover-container">
-					<a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="h-100">
+					<a href="/tin-tuc/{{ item.slug }}-{{ item.blogId }}" class="h-100">
 						<img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}">
 					</a>
 				</div>
 				<div class="post-date">{{ item.createdAtText }}</div>
 				<h6>
-					<a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="text-ellipsis-2">{{ item.title }}</a>
+					<a href="/tin-tuc/{{ item.slug }}-{{ item.blogId }}" class="text-ellipsis-2">{{ item.title }}</a>
 				</h6>
 			</div>
       	{{ end }}
@@ -29,7 +29,7 @@ Html
 				</div>
 				<div class="news-widget_post-date">{{ item.createdAtText }}</div>
 				<h6 class="news-widget_title">
-					<a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="text-ellipsis-2">{{ item.title }}</a>
+					<a href="/tin-tuc/{{ item.slug }}-{{ item.blogId }}" class="text-ellipsis-2">{{ item.title }}</a>
 				</h6>
 			</div>
 		{{ end }}

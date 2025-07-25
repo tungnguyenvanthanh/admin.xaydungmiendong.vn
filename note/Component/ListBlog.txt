@@ -4,14 +4,14 @@ Html
 <div class="news-block_two col-md-6 col-sm-12">
     <div class="news-block_two-inner">
         <div class="news-block_two-image">
-            <a href="/tin-tuc/{{ item.slug }}-{{ item.id }}">
+            <a href="/tin-tuc/{{ item.slug }}-{{ item.blogId }}">
                 <img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}" />
             </a>
         </div>
         <div class="news-block_two-content">
             <div class="news-block_two-title">{{ item.createdAtText }}</div>
             <h5 class="news-block_two-heading">
-                <a href="/tin-tuc/{{ item.slug }}-{{ item.id }}" class="text-ellipsis-3">{{ item.title }}</a>
+                <a href="/tin-tuc/{{ item.slug }}-{{ item.blogId }}" class="text-ellipsis-3">{{ item.title }}</a>
             </h5>
             <ul class="news-block_two-meta">
                 <li><span class="icon fa fa-user"></span>{{ item.author.name }}</li>
