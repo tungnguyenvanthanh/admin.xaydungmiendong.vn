@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AppAdmin",
   "resources": {
-    "hash": "sha256-8SFrXdyOQKwEggKMNnsw/lO+SovTpDe5sm7MNHCJJJg=",
+    "hash": "sha256-AgcRkWwGfOGPNnuUs3LqtXtusbGxBubPRnLmj+RRbqM=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YyxJV6dv935qHoQAmjB+2qRjHeGpm4SyWxE0T/KvsIE="
     },
@@ -99,17 +99,17 @@
       "System.Web.HttpUtility.wasm": "sha256-4yEIve5NJHIceQ7hzDDIhevg6b3OF7P0aP7yh3TjWoA=",
       "System.wasm": "sha256-ovI9fLxLRfh4RwNCi87t4luRVFfNap5GiBEwY0eh3bc=",
       "System.Private.CoreLib.wasm": "sha256-4+BAiVffn5vXyaI6IJ3I2/+m2sDb+FSD1wyX/jB7Q1w=",
-      "AppShare.wasm": "sha256-z8oiJ2QGj7e6IJrQWwtatwEPNXeAR8x40uS9UnktkRY=",
-      "TTVLDashboard.BlogLibrary.wasm": "sha256-0PLSHGFIoBIJClq6sq47+JAoOORpLgwdKPdmSdtp0cI=",
-      "TTVLDashboard.GameLibrary.wasm": "sha256-VHmTYwOMdoqPmvqeJSupYNX+ChHE+RdC2GPZAZMkbbU=",
-      "TTVLDashboard.HelpCenterLibrary.wasm": "sha256-lM1drtkAC+Wns7lgLihVK/nx6PTn9SPfaV0VLBBF1Fc=",
-      "TTVLDashboard.SiteSettingLibrary.wasm": "sha256-54xArS6/bFcAzk6WFD1Ou+iM/zEYjsR4jmauOfTuiYM=",
-      "TTVLDashboard.TenantLibrary.wasm": "sha256-vxYgzn5S1LdXqeDnpjdgSf8uBsa0XpH8Ol2nGUC8IRk=",
-      "TTVLDashboard.UserLibrary.wasm": "sha256-NaccQIcaumrblKYF5EGBI9c6Vy4zvN2ht7XP4vN8Tic=",
-      "TTVLDashboard.WebsiteLibrary.wasm": "sha256-FVadkgDZiedAY7jL5NL5E8a2T8PN9rXqibJwoByhM8k=",
-      "TTVLMudThemeLibrary.wasm": "sha256-h5Rzg3cp9oqjVRJ4L/uCjFhkiCq3yUXIwyN43TK/4Fo=",
-      "TTVLShareLibrary.wasm": "sha256-uP9Ks8vpyXJvo+iJ8s8+MU23ze5fvI2MJZv+2isflOs=",
-      "AppAdmin.wasm": "sha256-WmLtkDvcDuRyGSnoOd4g89sBqGwtmyOSBdJPS3EyHR0="
+      "AppShare.wasm": "sha256-8cfwd7ZBuuyosBgpudH+9Kxm3QNkNOOnVNXHl2U80FM=",
+      "TTVLDashboard.BlogLibrary.wasm": "sha256-zPRURNGsy3aQlwNbVeFyNLSggyT8MTfYTvmdRNy1AAg=",
+      "TTVLDashboard.GameLibrary.wasm": "sha256-PBd5zhIkWWnsH7EV9c5XrCLiS3fCLP+gHlIaHVfM3VE=",
+      "TTVLDashboard.HelpCenterLibrary.wasm": "sha256-V2F35qXL4W0A3BdH1vRvC0df4nz+wvovVQdERGMuytg=",
+      "TTVLDashboard.SiteSettingLibrary.wasm": "sha256-PiwablctQJqbqqjtx9cerrcdX24PnOWhtb1zMiU87pw=",
+      "TTVLDashboard.TenantLibrary.wasm": "sha256-COauOjwRW0lGgs+54GghjnyF+Xrh2SRAhc5KkuQ/Hd4=",
+      "TTVLDashboard.UserLibrary.wasm": "sha256-dP+QcIfPNOa792pnzNt2eW37uQyCpl58dH7cC05jPo0=",
+      "TTVLDashboard.WebsiteLibrary.wasm": "sha256-iQm7Wlx9mzTJYMUZ9l0LOpTVfukyiIR4C8jZX7jzwao=",
+      "TTVLMudThemeLibrary.wasm": "sha256-0NhNFivOLrfvIxbakq7ROcbVQuH1NfYiFeaZYksFiuI=",
+      "TTVLShareLibrary.wasm": "sha256-lW5ZWbs+Dk/S8YbJpik7jXACV95ZyEW/vKc5uuguD5M=",
+      "AppAdmin.wasm": "sha256-H4dKix+a5vTZFAN+VA8dnDTu2l1NNrh7XKfyTAaCReU="
     },
     "libraryInitializers": {
       "_content/TinyMCE.Blazor/TinyMce.Blazor.lib.module.js": "sha256-YWo2eyD7vRsEwgJEvrAuzw9OkKV7xlijfLrNVtX4iWg="
