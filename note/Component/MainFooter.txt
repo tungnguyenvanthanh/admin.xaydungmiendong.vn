@@ -3,7 +3,7 @@ Html
 <!--componentHtml:ContactWidget-->
 
 <footer class="main-footer">
-	<div class="main-footer_bg" style="background-image: url(/assets/images/background/6.jpg)"></div>
+	<div class="main-footer_bg" style="background-image: url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/6.jpg)"></div>
 	<div class="auto-container">
 		<div class="inner-container">
 			<!-- Widgets Section -->
@@ -19,8 +19,8 @@ Html
 								<div class="footer-widget footer-two_logo-widget">
 									<div class="footer-logo">
 										<a asp-controller="HomePage" asp-action="Index">
-												<img src="{{ model.sitelogofooter }}" alt="{{ model.sitename }}" title="{{ model.sitename }}">
-											</a>
+											<img src="{{ model.sitelogofooter }}" alt="{{ model.sitename }}" title="{{ model.sitename }}">
+										</a>
 									</div>
 									<div class="footer-text">Chúng tôi không chỉ xây nhà, chúng tôi đồng hành cùng bạn. <strong>@siteName</strong> – Kiến tạo tương lai, bền vững từ hôm nay.</div>
 									<ul class="footer-list">
@@ -48,12 +48,12 @@ Html
 								<div class="footer-widget links-widget">
 									<h5 class="footer-title">links</h5>
 									<ul class="footer-list">
-										<li><a href="#">Tin tức</a></li>
-										<li><a href="#">Tuyển dụng</a></li>
-										<li><a href="#">Liên hệ</a></li>
-										<li><a href="#">Thư viện</a></li>
-										<li><a href="#">Chính sách bảo mật</a></li>
-										<li><a href="#">Câu hỏi thường gặp</a></li>
+										<li><a href="/tin-tuc">Tin tức</a></li>
+										<li><a href="/tuyen-dung">Tuyển dụng</a></li>
+										<li><a href="/lien-he">Liên hệ</a></li>
+										<li><a href="/thu-vien">Thư viện</a></li>
+										<li><a href="/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
+										<li><a href="/cau-hoi-thuong-gap">Câu hỏi thường gặp</a></li>
 									</ul>
 								</div>
 							</div>

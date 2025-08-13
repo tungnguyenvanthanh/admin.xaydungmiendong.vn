@@ -1,0 +1,125 @@
+<!--componentHtml:PageTitle title="Câu hỏi thường gặp" background="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/24.jpg" breadcrumbs='{"/":"Trang chủ", "#":"Câu hỏi thường gặp"}' -->
+
+<!-- Faq One -->
+<section class="faq-one">
+    <div class="auto-container">
+        <div class="title-box">
+            <h3>Frequently Asked Questions</h3>
+            <div class="text">There are many variations of passages of Lorem Ipsum available, but the majority have <br> suffered alteration in some form, by injected humour, or randomised words which</div>
+        </div>
+        <div class="faq-one_icon">
+            <img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/icons/faq.png" alt="" />
+        </div>
+        <div class="row clearfix">
+            <!-- Column -->
+            <div class="column col-lg-6 col-md-12 col-sm-12">
+                <h4>Maid Service</h4>
+                
+                <!-- Accordion Box -->
+                <ul class="accordion-box style-two">
+                    
+                    <!-- Block -->
+                    <li class="accordion block active-block">
+                        <div class="acc-btn active"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div> Can I tile directly onto a wooden floor?</div>
+                        <div class="acc-content current">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                                
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>What preparation is required for new plaster?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>Can I use floor tiles on the wall?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>Where do I start my tiling from?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>Is the right adhesive important?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                
+                </ul>
+                
+            </div>
+            <!-- Column -->
+            <div class="column col-lg-6 col-md-12 col-sm-12">
+                <h4>Interior FAQs</h4>
+                <!-- Accordion Box -->
+                <ul class="accordion-box style-two">
+                    
+                    <!-- Block -->
+                    <li class="accordion block active-block">
+                        <div class="acc-btn active"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>When do I remove the spacers?</div>
+                        <div class="acc-content current">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>What is the best tool to choose?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>Is the right grout important?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Block -->
+                    <li class="accordion block">
+                        <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-arrow-down"></span></div>How long do I leave my tiles before grouting?</div>
+                        <div class="acc-content">
+                            <div class="content">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters Residential Cleaning </p>
+                            </div>
+                        </div>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Faq One -->

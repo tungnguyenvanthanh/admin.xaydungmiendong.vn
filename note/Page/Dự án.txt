@@ -1,0 +1,119 @@
+<!--componentHtml:PageTitle title="Dự án" background="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/24.jpg" breadcrumbs='{"/":"Trang chủ", "#":"Dự án"}' -->
+	
+<!-- Projects Three -->
+<section class="projects-three" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/17.jpg)">
+	<div class="outer-container">
+		<div class="row clearfix">
+		
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/8.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">Tiles Install</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">01</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/9.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">Room Painting</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">02</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/10.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">3d Style Home</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">03</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/11.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">Dynamite</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">04</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/12.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">Floor Tiles</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">05</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Projects Block Three -->
+			<div class="projects-block_three col-lg-4 col-md-6 col-sm-6">
+				<div class="projects-block_three-inner">
+					<div class="projects-block_three-image">
+						<a href="#"><img src="https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/gallery/13.jpg" alt="" /></a>
+					</div>
+					<div class="projects-block_three-content">
+						<div class="projects-block_three-title">Flooring</div>
+						<div class="projects-block_three-content_inner">
+							<div class="projects-block_three-pattern" style="background-image:url(https://cdn.jsdelivr.net/gh/tungnguyenvanthanh/admin.xaydungmiendong.vn/assets/images/background/pattern-14.png)"></div>
+							<h4 class="projects-block_three-heading"><a href="#">Euromax 20</a></h4>
+							<a class="projects-block_three-arrow" href="#"><i class="flaticon-next"></i></a>
+							<div class="projects-block_three-number">06</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!-- End Projects Three -->
