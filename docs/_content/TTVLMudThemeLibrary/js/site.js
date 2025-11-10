@@ -220,3 +220,66 @@ window.TTVLMudThemeLibrary = function () {
         forceDownload
     };
 }();
+
+// ============================================================
+// FILE DOWNLOAD HELPER - Hỗ trợ download file từ byte array
+// ============================================================
+
+/**
+ * Download file từ byte array
+ * @param {string} filename - Tên file (VD: "AuditLogs_20240115.xlsx")
+ * @param {Uint8Array} byteArray - Mảng bytes của file
+ */
+window.downloadFileFromStream = async (filename, byteArray) => {
+    const logger = window.TTVLLogger;
+
+    try {
+        // Tạo blob từ byte array
+        const blob = new Blob([byteArray], {
+            type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        });
+
+        // Tạo URL cho blob
+        const url = URL.createObjectURL(blob);
+
+        // Tạo thẻ <a> để trigger download
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+
+        // Click để download
+        link.click();
+
+        // Cleanup
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        logger.success(`✅ Downloaded: ${filename}`);
+    } catch (error) {
+        logger.error('❌ Download failed:', error);
+        alert(`Download failed: ${error.message}`);
+    }
+};
+
+/**
+ * Download file từ base64 string (alternative method)
+ * @param {string} filename - Tên file
+ * @param {string} base64String - Base64 encoded content
+ */
+window.downloadFileFromBase64 = (filename, base64String) => {
+    const logger = window.TTVLLogger;
+    try {
+        const link = document.createElement('a');
+        link.href = `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${base64String}`;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        logger.success(`✅ Downloaded: ${filename}`);
+    } catch (error) {
+        logger.error('❌ Download failed:', error);
+        alert(`Download failed: ${error.message}`);
+    }
+};
