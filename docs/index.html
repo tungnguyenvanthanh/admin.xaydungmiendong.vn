@@ -80,6 +80,9 @@
     <!-- Cropper.js Library -->
     <script src="_content/TTVLDashboard.SharedLibrary/plugins/cropperjs/cropper.js" defer></script>
 
+    <!-- ✅ THÊM: Chart.js cho Analytics Dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+
 </head>
 
 <body>
@@ -115,6 +118,9 @@
     <script src="_content/TTVLDashboard.SharedLibrary/js/site.js" defer></script>
     <script src="js/site.js" defer></script>
 
+    <!-- ✅ THÊM: Analytics Charts Helper -->
+    <script src="js/analytics-charts.js" defer></script>
+
     <!-- Monaco Editor (Global loader) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js" defer></script>
 
@@ -136,12 +142,6 @@
                 await new Promise(resolve => setTimeout(resolve, 50));
                 attempts++;
             }
-
-            //if (attempts >= maxAttempts) {
-            //    console.error('⚠️ Timeout waiting for dependencies. Starting Blazor anyway...');
-            //} else {
-            //    console.log('✅ Dependencies ready (jQuery, TTVLLogger, Cropper)');
-            //}
 
             // Start Blazor
             try {
