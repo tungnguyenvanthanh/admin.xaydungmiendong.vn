@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Giá Trị Cốt Lõi - Xây Dựng Miền Đông JSC</title>
+
+<!-- Stylesheets -->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<!-- Color Switcher Mockup -->
+<link href="assets/css/color-switcher-design.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<style>
+/* Custom styles for Core Values page */
+.core-values-intro {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.core-values-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(255,255,255,0.05) 100%);
+    z-index: -1;
+}
+
+.intro-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.core-value-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.core-value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,107,53,0.1), transparent);
+    transition: all 0.6s ease;
+}
+
+.core-value-card:hover::before {
+    left: 100%;
+}
+
+.core-value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(255,107,53,0.2);
+}
+
+.core-value-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    font-size: 48px;
+    color: #fff;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.core-value-icon::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #ff6b35;
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.core-value-card:hover .core-value-icon {
+    transform: scale(1.1) rotate(360deg);
+}
+
+.core-value-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.core-value-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+}
+
+.core-value-content {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #666;
+    text-align: left;
+}
+
+.core-value-content p {
+    margin-bottom: 15px;
+}
+
+.core-value-highlight {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.core-value-highlight::before {
+    content: '⇒';
+    position: absolute;
+    left: 20px;
+    font-size: 24px;
+}
+
+.commitment-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 80px 0;
+    color: #fff;
+    margin-top: 60px;
+    position: relative;
+}
+
+.commitment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/images/background/11.jpg');
+    opacity: 0.05;
+}
+
+.commitment-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.commitment-content {
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    padding: 60px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.cta-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.stats-section {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.2);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.core-values-section {
+    padding: 100px 0;
+}
+
+.value-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255,107,53,0.05);
+    line-height: 1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+	
+	<!-- Cursor -->
+	<div class="cursor"></div>
+	<div class="cursor-follower"></div>
+	<!-- Cursor End -->
+ 	
+	<!-- Preloader -->
+    <div class="preloader"></div>
+	<!-- End Preloader -->
+	
+	<!-- Main Header / Header Style Three -->
+	<header class="main-header header-style-three">
+		<div class="header-style-three_image" style="background-image:url(assets/images/background/14.jpg)"></div>
+		<!-- Header Top -->
+		<div class="header-top">
+			<div class="auto-container">
+				<div class="d-flex justify-content-between align-items-center flex-wrap">
+					<div class="left-box d-flex align-items-center flex-wrap">
+						<!-- Header Socials -->
+						<div class="header_socials">
+							<a class="fa-brands fa-facebook-f fa-fw" href="#"></a>
+							<a class="fa-brands fa-instagram fa-fw" href="#"></a>
+							<a class="fa-brands fa-twitter fa-fw" href="#"></a>
+							<a class="fa-brands fa-youtube fa-fw" href="#"></a>
+						</div>
+						<!-- Header Top List -->
+						<ul class="header-top_list">
+							<li><a href="shop.html">Sản Phẩm</a></li>
+							<li><a href="team.html">Tuyển Dụng</a></li>
+							<li><a href="blog.html">Tin Tức</a></li>
+						</ul>
+					</div>
+					<div class="right-box">
+						<!-- Info List -->
+						<ul class="header-top_info">
+							<li><span class="icon flaticon-location-pin"></span><a href="contact.html">Miền Đông JSC, Việt Nam</a></li>
+							<li><span class="icon flaticon-messenger"></span><a href="mailto:contact@miendong.vn">contact@miendong.vn</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Header Lower -->
+		<div class="header-lower">
+			<div class="auto-container">
+				<div class="inner-container">
+					<div class="d-flex justify-content-between align-items-center flex-wrap">
+						
+						<div class="left-box d-flex align-items-center flex-wrap">
+							<!-- Logo Box -->
+							<div class="logo-box">
+								<div class="logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
+							</div>
+							<!-- End Logo Box -->
+						
+							<!-- Nav Outer -->
+							<div class="nav-outer">
+								<!-- Main Menu -->
+								<nav class="main-menu navbar-expand-md">
+									<div class="navbar-header">
+										<!-- Toggle Button -->    	
+										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
+									
+									<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+										<ul class="navigation clearfix">
+											<li class="dropdown"><a href="#">Trang Chủ</a>
+												<ul>
+													<li><a href="index.html">Trang Chủ 01</a></li>
+													<li><a href="index-2.html">Trang Chủ 02</a></li>
+													<li><a href="index-3.html">Trang Chủ 03</a></li>
+												</ul>
+											</li>
+											<li class="dropdown current"><a href="#">Về Chúng Tôi</a>
+												<ul>
+													<li><a href="about.html">Giới Thiệu</a></li>
+													<li class="current"><a href="core-values.html">Giá Trị Cốt Lõi</a></li>
+													<li><a href="faq.html">FAQ</a></li>
+													<li><a href="team.html">Đội Ngũ</a></li>
+												</ul>
+											</li>
+											<li class="dropdown"><a href="#">Dự Án</a>
+												<ul>
+													<li><a href="portfolio.html">Dự Án</a></li>
+													<li><a href="portfolio-2.html">Dự Án 02</a></li>
+													<li><a href="project-detail.html">Chi Tiết Dự Án</a></li>
+												</ul>
+											</li>
+											<li class="dropdown"><a href="#">Dịch Vụ</a>
+												<ul>
+													<li><a href="services.html">Dịch Vụ</a></li>
+													<li><a href="service-detail.html">Chi Tiết Dịch Vụ</a></li>
+												</ul>
+											</li>
+											<li class="dropdown"><a href="#">Tin Tức</a>
+												<ul>
+													<li><a href="blog.html">Tin Tức</a></li>
+													<li><a href="blog-classic.html">Tin Tức Classic</a></li>
+													<li><a href="blog-detail.html">Chi Tiết Tin Tức</a></li>
+												</ul>
+											</li>
+											<li><a href="contact.html">Liên Hệ</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+							<!-- End Nav Outer -->
+						
+						</div>
+						
+						<!-- Outer Box -->
+						<div class="outer-box d-flex align-items-center flex-wrap">
+							
+							<!-- Header Button Box -->
+							<div class="header_button-box">
+								<a href="contact.html" class="theme-btn btn-style-one">
+									<span class="btn-wrap">
+										<span class="text-one">Nhận Báo Giá</span>
+										<span class="text-two">Nhận Báo Giá</span>
+									</span>
+								</a>
+							</div>
+							<!-- Mobile Navigation Toggler -->
+							<div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+						</div>
+						<!-- End Outer Box -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Header Lower -->
+		
+		<!-- Mobile Menu  -->
+		<div class="mobile-menu">
+			<div class="menu-backdrop"></div>
+			<div class="close-btn"><span class="icon flaticon-close"></span></div>
+			
+			<nav class="menu-box">
+				<div class="nav-logo"><a href="index.html"><img src="assets/images/mobile-logo.png" alt="" title=""></a></div>
+				<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+			</nav>
+		</div>
+		<!-- End Mobile Menu -->
+		
+	</header>
+	<!-- End Main Header -->
+	
+	<!-- Page Title -->
+    <section class="page-title" style="background-image:url(assets/images/background/24.jpg)">
+        <div class="auto-container">
+			<h2>Giá Trị Cốt Lõi</h2>
+			<ul class="bread-crumb clearfix">
+				<li><a href="index.html">Trang Chủ</a></li>
+				<li>Giá Trị Cốt Lõi</li>
+			</ul>
+        </div>
+    </section>
+    <!-- End Page Title -->
+
+	<!-- Stats Section -->
+	<section class="stats-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="stat-card wow fadeInUp" data-wow-delay="0ms">
+						<div class="stat-number odometer" data-count="15">0</div>
+						<div class="stat-label">Năm Kinh Nghiệm</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="stat-card wow fadeInUp" data-wow-delay="200ms">
+						<div class="stat-number odometer" data-count="500">0</div>
+						<div class="stat-label">Dự Án Hoàn Thành</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="stat-card wow fadeInUp" data-wow-delay="400ms">
+						<div class="stat-number odometer" data-count="100">0</div>
+						<div class="stat-label">Đối Tác Tin Cậy</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="stat-card wow fadeInUp" data-wow-delay="600ms">
+						<div class="stat-number odometer" data-count="98">0</div>
+						<div class="stat-label">% Hài Lòng</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Stats Section -->
+
+	<!-- Core Values Introduction -->
+	<section class="core-values-intro">
+		<div class="auto-container">
+			<div class="sec-title text-center">
+				<div class="sec-title_title"><i class="flaticon-wood-1"></i> Xây Dựng Miền Đông JSC</div>
+				<h2 class="sec-title_heading">Hành Trình Phát Triển & Những Giá Trị Bền Vững</h2>
+			</div>
+			<div class="intro-text text-center wow fadeInUp" data-wow-delay="200ms">
+				<p>Trải qua nhiều năm xây dựng và phát triển, <strong>Xây dựng Miền Đông JSC</strong> đã và đang là thương hiệu ngày càng có chỗ đứng trên thị trường. Có rất nhiều thách thức và nhiều thành tựu đạt được là kết quả của sự nỗ lực, đoàn kết của Ban lãnh đạo công ty và toàn thể CBCNV.</p>
+				<p>Những đóng góp này sẽ luôn được ghi nhớ, luôn trân trọng, gìn giữ và phát huy đều được thể hiện qua <strong>5 giá trị cốt lõi</strong> dưới đây!</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Core Values Introduction -->
+
+	<!-- Core Values Section -->
+	<section class="core-values-section">
+		<div class="auto-container">
+			
+			<!-- Value 1: Sáng Tạo -->
+			<div class="core-value-card wow fadeInUp" data-wow-delay="0ms" data-tilt data-tilt-max="2">
+				<span class="value-number">01</span>
+				<div class="core-value-icon">
+					<i class="flaticon-idea"></i>
+				</div>
+				<h3 class="core-value-title">Sáng Tạo</h3>
+				<div class="core-value-content">
+					<p>Con người <strong>Miền Đông JSC</strong> luôn tìm tòi công nghệ và cập nhật những phương pháp mới để nâng cao chất lượng công việc và năng suất.</p>
+					
+					<p>Trong kiến trúc, sáng tạo là làm cho mỗi sản phẩm thiết kế đều có những nét riêng, ít trùng lặp ý tưởng. Người kiến trúc sư phải luôn học hỏi tìm tòi phong cách thiết kế mới để theo kịp xu hướng kiến trúc của thời đại.</p>
+					
+					<p>Không ngừng tìm hiểu, nghiên cứu những điều mới dựa trên nền tảng cái đã có sẵn. Tốt hơn nữa, tạo ra những giá trị hoàn toàn mới chưa hề có trước đó.</p>
+					
+					<div class="core-value-highlight">
+						Sáng tạo là động lực lớn nhất để làm việc và sinh tồn
+					</div>
+				</div>
+			</div>
+
+			<!-- Value 2: Yêu Thương -->
+			<div class="core-value-card wow fadeInUp" data-wow-delay="200ms" data-tilt data-tilt-max="2">
+				<span class="value-number">02</span>
+				<div class="core-value-icon">
+					<i class="flaticon-heart"></i>
+				</div>
+				<h3 class="core-value-title">Yêu Thương</h3>
+				<div class="core-value-content">
+					<p>Toàn bộ cán bộ nhân viên của <strong>Miền Đông JSC</strong> là một gia đình. Sẵn sàng yêu thương, hỗ trợ, chia sẻ nhau khi cần dù trong công việc hay cuộc sống.</p>
+					
+					<p><strong>Yêu thương khách hàng:</strong> Coi sản phẩm, tài sản của khách hàng như của chính mình để gìn giữ và bảo vệ. Luôn tâm đắc rằng: "Trước và trong quá trình làm việc thì họ là khách hàng, đối tác; sau là một người bạn, và ngôi nhà của khách hàng cũng như ngôi nhà của chính chúng ta."</p>
+					
+					<div class="core-value-highlight">
+						Muốn nhận được nhiều hơn, hãy cho đi và cống hiến
+					</div>
+				</div>
+			</div>
+
+			<!-- Value 3: Trung Thực -->
+			<div class="core-value-card wow fadeInUp" data-wow-delay="400ms" data-tilt data-tilt-max="2">
+				<span class="value-number">03</span>
+				<div class="core-value-icon">
+					<i class="flaticon-shield"></i>
+				</div>
+				<h3 class="core-value-title">Trung Thực</h3>
+				<div class="core-value-content">
+					<p>Trung thực trong tài chính, khách hàng, đồng nghiệp và đối tác.</p>
+					
+					<p>Có lời nói, hành động đúng với từng hoàn cảnh, chuẩn mực.</p>
+					
+					<p>Chỉ có trung thực mới mang lại cho chúng ta cuộc sống hạnh phúc, bình an và thanh thản.</p>
+				</div>
+			</div>
+
+			<!-- Value 4: Tận Tâm -->
+			<div class="core-value-card wow fadeInUp" data-wow-delay="600ms" data-tilt data-tilt-max="2">
+				<span class="value-number">04</span>
+				<div class="core-value-icon">
+					<i class="flaticon-star"></i>
+				</div>
+				<h3 class="core-value-title">Tận Tâm</h3>
+				<div class="core-value-content">
+					<p><strong>Tận tâm với khách hàng:</strong> Mang đến cảm giác hài lòng, yên tâm trong từng sản phẩm, dịch vụ. Luôn hồi đáp kịp thời các yêu cầu của khách hàng.</p>
+					
+					<p><strong>Tận tâm với người lao động:</strong> Tạo một môi trường làm việc thân thiện, công bằng, trả công xứng đáng và có cơ hội để phát triển bản thân.</p>
+					
+					<div class="core-value-highlight">
+						Thành công chỉ đến khi bạn làm việc tận tâm và luôn nghĩ về những điều tốt đẹp
+					</div>
+				</div>
+			</div>
+
+			<!-- Value 5: Trách Nhiệm & Kỷ Luật -->
+			<div class="core-value-card wow fadeInUp" data-wow-delay="800ms" data-tilt data-tilt-max="2">
+				<span class="value-number">05</span>
+				<div class="core-value-icon">
+					<i class="flaticon-check"></i>
+				</div>
+				<h3 class="core-value-title">Trách Nhiệm & Kỷ Luật</h3>
+				<div class="core-value-content">
+					<p><strong>Có trách nhiệm với khách hàng:</strong> Luôn thực hiện 100% lời cam kết với khách hàng bằng mọi giá (đúng tiến độ, cam kết chất lượng). Mọi thắc mắc, ý kiến của khách hàng phải được xem xét và phản hồi sớm nhất.</p>
+					
+					<p>Luôn coi bản thân là gốc rễ của mọi vấn đề, từ bỏ quyền mình được coi là nạn nhân (đổ lỗi, chỉ trích, than phiền).</p>
+					
+					<p>Luôn đặt câu hỏi: <em>"Bản thân đã làm gì để sự việc đó xảy ra?"</em></p>
+					
+					<div class="core-value-highlight">
+						Cách ta làm một việc cũng là cách ta làm mọi việc
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Core Values Section -->
+
+	<!-- Commitment Section -->
+	<section class="commitment-section">
+		<div class="auto-container">
+			<h3 class="commitment-title wow fadeInDown">Cam Kết Của Chúng Tôi</h3>
+			<div class="commitment-content wow fadeInUp" data-wow-delay="200ms">
+				<p>Sử dụng dịch vụ của <strong>Miền Đông JSC</strong>, chúng tôi cam kết đem lại cho khách hàng các dịch vụ xây dựng nhà, sửa chữa nhà tốt nhất với giá thành hợp lý. Thi công nhanh gọn sản phẩm đúng chất lượng mẫu mã đã yêu cầu.</p>
+				
+				<p>Một ngôi nhà vững chắc, sang trọng, hiện đại và tinh tế. Từng kết cấu kiện được bố trí linh hoạt, sắp xếp đúng vị trí mang tính thẩm mỹ cao. Chúng tôi cam kết về một môi trường sống bền vững.</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Commitment Section -->
+
+	<!-- CTA Section -->
+	<section class="cta-section">
+		<div class="auto-container">
+			<div class="cta-title wow fadeInDown">Bạn Đã Sẵn Sàng Để Bắt Đầu Dự Án Của Mình?</div>
+			<div class="cta-text wow fadeInUp" data-wow-delay="200ms">Đừng ngần ngại hãy liên hệ ngay hôm nay để được ĐỘI NGŨ Miền Đông JSC tư vấn nhé.</div>
+			<div class="wow fadeInUp" data-wow-delay="400ms">
+				<a href="contact.html" class="theme-btn btn-style-one light">
+					<span class="btn-wrap">
+						<span class="text-one">Liên Hệ Ngay</span>
+						<span class="text-two">Liên Hệ Ngay</span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!-- End CTA Section -->
+
+	<!-- Gallery Section -->
+	<section class="gallery-one style-two" style="padding: 100px 0;">
+		<div class="auto-container">
+			<div class="sec-title text-center">
+				<div class="sec-title_title"><i class="flaticon-wood-1"></i> Hình Ảnh Hoạt Động</div>
+				<h2 class="sec-title_heading">Những Khoảnh Khắc Đáng Nhớ</h2>
+			</div>
+		</div>
+		<div class="gallery-one_outer">
+			<div class="row clearfix">
+				<!-- Gallery Item -->
+				<div class="gallery-one_block col-lg-3 col-md-6 col-sm-12">
+					<div class="gallery-one_block-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+						<div class="gallery-one_block-image">
+							<img src="assets/images/gallery/1.jpg" alt="" />
+							<div class="gallery-one_block-overlay">
+								<a class="lightbox-video gallery-one_block-video" href="assets/images/gallery/1.jpg" data-fancybox="gallery-image"><span class="fa fa-search"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Gallery Item -->
+				<div class="gallery-one_block col-lg-3 col-md-6 col-sm-12">
+					<div class="gallery-one_block-inner wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
+						<div class="gallery-one_block-image">
+							<img src="assets/images/gallery/2.jpg" alt="" />
+							<div class="gallery-one_block-overlay">
+								<a class="lightbox-video gallery-one_block-video" href="assets/images/gallery/2.jpg" data-fancybox="gallery-image"><span class="fa fa-search"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Gallery Item -->
+				<div class="gallery-one_block col-lg-3 col-md-6 col-sm-12">
+					<div class="gallery-one_block-inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+						<div class="gallery-one_block-image">
+							<img src="assets/images/gallery/3.jpg" alt="" />
+							<div class="gallery-one_block-overlay">
+								<a class="lightbox-video gallery-one_block-video" href="assets/images/gallery/3.jpg" data-fancybox="gallery-image"><span class="fa fa-search"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Gallery Item -->
+				<div class="gallery-one_block col-lg-3 col-md-6 col-sm-12">
+					<div class="gallery-one_block-inner wow fadeInLeft" data-wow-delay="450ms" data-wow-duration="1500ms">
+						<div class="gallery-one_block-image">
+							<img src="assets/images/gallery/4.jpg" alt="" />
+							<div class="gallery-one_block-overlay">
+								<a class="lightbox-video gallery-one_block-video" href="assets/images/gallery/4.jpg" data-fancybox="gallery-image"><span class="fa fa-search"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- End Gallery Section -->
+	
+	<!-- Main Footer -->
+	<footer class="main-footer">
+		<div class="main-footer_bg" style="background-image: url(assets/images/background/6.jpg)"></div>
+		<div class="auto-container">
+			<div class="inner-container">
+				<!-- Widgets Section -->
+				<div class="widgets-section">
+					<div class="row clearfix">
+						
+						<!-- Big Column -->
+						<div class="big-column col-lg-6 col-md-12 col-sm-12">
+							<div class="row clearfix">
+
+								<!-- Footer Column -->
+								<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget footer-two_logo-widget">
+										<div class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png" alt="" title=""></a></div>
+										<div class="footer-text">Hơn 15 năm kinh nghiệm, chúng tôi đảm bảo mang đến cho bạn những giải pháp xây dựng tốt nhất</div>
+										<ul class="footer-list">
+											<li><a href="#">Tư Vấn Thiết Kế</a></li>
+											<li><a href="#">Xây Dựng Nhà</a></li>
+										</ul>
+									</div>
+								</div>
+
+								<!-- Footer Column -->
+								<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget post-widget">
+										<h5 class="footer-title">Bài Viết Mới</h5>
+										<!--News Widget Block-->
+										<div class="news-widget-block">
+											<div class="news-widget_image">
+												<img src="assets/images/resource/post-thumb-4.png" alt="" />
+											</div>
+											<div class="news-widget_post-date">02 Tháng 5 2024</div>
+											<h6 class="news-widget_title"><a href="blog-detail.html">Xu Hướng Thiết Kế Nhà Hiện Đại</a></h6>
+										</div>
+	
+										<!--News Widget Block-->
+										<div class="news-widget-block">
+											<div class="news-widget_image">
+												<img src="assets/images/resource/post-thumb-5.png" alt="" />
+											</div>
+											<div class="news-widget_post-date">02 Tháng 5 2024</div>
+											<h6 class="news-widget_title"><a href="blog-detail.html">Giải Pháp Xây Dựng Xanh</a></h6>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Big Column -->
+						<div class="big-column col-lg-6 col-md-12 col-sm-12">
+							<div class="row clearfix">
+								
+								<!-- Footer Column -->
+								<div class="footer_column col-lg-5 col-md-6 col-sm-12">
+									<div class="footer-widget links-widget">
+										<h5 class="footer-title">Liên Kết</h5>
+										<ul class="footer-list">
+											<li><a href="services.html">Dịch Vụ</a></li>
+											<li><a href="contact.html">Liên Hệ</a></li>
+											<li><a href="price.html">Báo Giá</a></li>
+											<li><a href="portfolio.html">Dự Án</a></li>
+											<li><a href="about.html">Giới Thiệu</a></li>
+											<li><a href="core-values.html">Giá Trị Cốt Lõi</a></li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- Footer Column -->
+								<div class="footer_column col-lg-6 col-md-6 col-sm-12">
+									<div class="footer-widget newsletter-widget">
+										<h5 class="footer-title">Đăng Ký Nhận Tin</h5>
+										<div class="newsletter-text">Đăng ký nhận bản tin hàng tuần của chúng tôi!</div>
+										<div class="newsletter-box">
+											<form method="post" action="contact.html">
+												<div class="form-group">
+													<input type="email" name="search-field" value="" placeholder="Email của bạn" required>
+													<button type="submit" class="theme-btn">Đăng Ký</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="footer-bottom">
+			<div class="auto-container">
+				<div class="d-flex justify-content-between align-items-center flex-wrap">
+					<div class="main-footer_copyright">&copy;2024 Xây Dựng Miền Đông JSC - All Rights Reserved</div>
+					<!-- Header Socials -->
+					<div class="footer_socials">
+						<span>Mạng Xã Hội</span>
+						<a class="fa-brands fa-facebook-f fa-fw" href="#"></a>
+						<a class="fa-brands fa-instagram fa-fw" href="#"></a>
+						<a class="fa-brands fa-twitter fa-fw" href="#"></a>
+						<a class="fa-brands fa-youtube fa-fw" href="#"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Style -->
+	
+	<!-- Search Popup -->
+	<div class="search-popup">
+		<div class="color-layer"></div>
+		<button class="close-search"><span class="flaticon-close"></span></button>
+		<form method="post" action="blog.html">
+			<div class="form-group">
+				<input type="search" name="search-field" value="" placeholder="Tìm Kiếm..." required="">
+				<button class="fa fa-solid fa-magnifying-glass fa-fw" type="submit"></button>
+			</div>
+		</form>
+	</div>
+	<!-- End Search Popup -->
+	
+</div>
+<!-- End PageWrapper -->
+
+<div class="progress-wrap">
+	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+	</svg>
+</div>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/parallax.min.js"></script>
+<script src="assets/js/tilt.jquery.min.js"></script>
+<script src="assets/js/jquery.paroller.min.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/backtotop.js"></script>
+<script src="assets/js/odometer.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/SplitText.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/ScrollToPlugin.min.js"></script>
+<script src="assets/js/ScrollSmoother.min.js"></script>
+
+<script src="assets/js/magnific-popup.min.js"></script>
+<script src="assets/js/jquery.meanmenu.min.js"></script>
+<script src="assets/js/nav-tool.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/element-in-view.js"></script>
+<script src="assets/js/script.js"></script>
+
+<script>
+// Custom animations for Core Values page
+document.addEventListener('DOMContentLoaded', function() {
+	// Initialize WOW.js for scroll animations
+	if (typeof WOW !== 'undefined') {
+		new WOW({
+			boxClass: 'wow',
+			animateClass: 'animated',
+			offset: 0,
+			mobile: true,
+			live: true
+		}).init();
+	}
+	
+	// Initialize Tilt effect for cards
+	if (typeof jQuery !== 'undefined' && jQuery.fn.tilt) {
+		$('[data-tilt]').tilt({
+			maxTilt: 2,
+			perspective: 1000,
+			glare: false,
+			speed: 400
+		});
+	}
+	
+	// Odometer counter animation
+	if (typeof Odometer !== 'undefined') {
+		$('.odometer').each(function() {
+			var $this = $(this);
+			var countTo = $this.data('count');
+			
+			$(window).on('scroll', function() {
+				if ($this.isInViewport()) {
+					setTimeout(function() {
+						$this.html(countTo);
+					}, 500);
+				}
+			});
+		});
+	}
+	
+	// Helper function to check if element is in viewport
+	$.fn.isInViewport = function() {
+		var elementTop = $(this).offset().top;
+		var elementBottom = elementTop + $(this).outerHeight();
+		var viewportTop = $(window).scrollTop();
+		var viewportBottom = viewportTop + $(window).height();
+		return elementBottom > viewportTop && elementTop < viewportBottom;
+	};
+});
+</script>
+
+</body>
+</html>
