@@ -117,7 +117,7 @@ Ví dụ icon (gọn, không dùng `<p>`):
 
 ---
 
-### 3.4 CTA (Call To Action)
+### 3.5 CTA (Call To Action)
 - Dùng động từ ngắn, rõ ràng; tạo tương phản màu để nổi bật.
 - Thêm `aria-label` cho liên kết chứa emoji hoặc văn bản ngắn.
 
@@ -146,9 +146,15 @@ Ví dụ icon (gọn, không dùng `<p>`):
 ```html
 <section class="mb-3">
     <h4 class="fw-semibold mb-3 text-center">Hình ảnh công trình thực tế</h4>
-    <ul class="gallery" aria-label="Gallery hình ảnh công trình">
+    <ul class="gallery-lightbox" aria-label="Gallery hình ảnh công trình">
         <li>
-            <img src="/images/img1.jpg" alt="Phòng khách sau khi cải tạo" loading="lazy">
+            <a class="gallery-elem"
+               href="/images/img1.jpg"
+               data-lcl-thumb="/images/img1.jpg"
+               data-lcl-txt="Phòng khách"
+               data-lcl-author="— Công ty Xây dựng Miền Đông">
+               <img src="/images/img1.jpg" alt="Phòng khách sau khi cải tạo" loading="lazy" class="img-fluid">
+            </a>
         </li>
         <!-- Thêm ảnh khác tương tự -->
     </ul>
@@ -157,7 +163,30 @@ Ví dụ icon (gọn, không dùng `<p>`):
 
 ---
 
-### 3.6 Bootstrap 5 — Ngắn gọn
+### 3.6 Gallery video
+- Nhúng video từ YouTube (responsive) bằng iframe với tỉ lệ 16:9.
+
+```html
+<section class="mb-3">
+    <h4 class="fw-semibold mb-3 text-center">Video thi công & hoàn thiện</h4>
+    <div class="video-grid">
+        <div class="video-item">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+               <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                       title="title text"
+                       style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" 
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                       allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Thêm video khác tương tự -->
+    </div>
+</section>
+```
+
+---
+
+### 3.7 Bootstrap 5 — Ngắn gọn
 - Template đang sử dụng `Bootstrap 5`. Khi viết content, chỉ cần tuân theo các lớp và utility của Bootstrap để đảm bảo responsive và nhất quán. Tránh đưa nhiều ví dụ chi tiết để không gây hoang mang.
 - Những điểm chính cần tuân thủ:
   - Layout: dùng `container` / `container-fluid`, `row`, `col-*`.
@@ -166,6 +195,78 @@ Ví dụ icon (gọn, không dùng `<p>`):
   - Spacing: dùng utility như `mb-*`, `mt-*`, `py-*` thay vì inline styles.
   - CTA: dùng lớp `btn` (ví dụ `btn btn-primary`) và thêm `aria-label` nếu chỉ có icon/emoji.
   - Accessibility: giữ `aria-*` cho icon trang trí và kiểm tra tương phản màu.
+
+---
+
+### 3.8 Thông tin dự án (Template — bảng giả bằng Bootstrap grid)
+- Dùng `div` + `row` + `col-*` để tạo bảng thông tin responsive, tránh dùng `<table>` nếu cần layout linh hoạt trên mobile.
+- Nhãn (label) nên dùng `role="rowheader"` và giá trị dùng `role="cell"` để cải thiện truy cập.
+
+```html
+<section class="mb-3">
+    <h4 class="fw-semibold mb-3 text-center">Thông tin tổng quan dự án</h4>
+
+    <div class="bg-light rounded p-4 project-info" role="table" aria-label="Thông tin dự án">
+        <div class="row gy-3">
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Chủ đầu tư:</strong>
+                    <span role="cell">Gia đình anh T.</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Địa điểm:</strong>
+                    <span role="cell">TP. Bảo Lộc, tỉnh Lâm Đồng</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Diện tích khu đất:</strong>
+                    <span role="cell">22 x 25m</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Quy mô:</strong>
+                    <span role="cell">1 trệt 1 lầu</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Diện tích xây dựng:</strong>
+                    <span role="cell">12 x 18m</span>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Hình thức:</strong>
+                    <span role="cell">Thiết kế &amp; thi công trọn gói</span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="d-flex">
+                    <strong class="me-2 flex-shrink-0" role="rowheader">Đơn vị thực hiện:</strong>
+                    <span role="cell">Xây dựng Miền Đông JSC</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+```
+
+Ghi chú ngắn:
+- Thay đổi các breakpoints (`col-sm-6`, `col-md-4`, ...) theo số cột bạn muốn hiển thị trên từng kích thước màn hình.
+- Dùng `flex-shrink-0` trên nhãn để tránh xuống hàng không mong muốn; nếu cần căn chỉnh chiều rộng nhãn, thêm lớp tiện ích hoặc CSS riêng cho `project-info strong`.
+- Giữ `aria-label` và `role` để hỗ trợ đọc màn hình.
 
 ---
 
